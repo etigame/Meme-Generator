@@ -10,12 +10,15 @@
 <body onload="onInit()">
     <h1>Meme Generator</h1>
     <input type="text" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
-    <section class="gallery"></section>
+    <section class="gallery-list">
+    </section>
     <section class="editor">
         <canvas id="my-canvas" height="500" width="500"></canvas>
     </section>
     
+    <script src="js/gallery-service.js"></script>
     <script src="js/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/main.js"></script>
 </body>
