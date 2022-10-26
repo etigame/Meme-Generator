@@ -9,7 +9,6 @@ function onInit() {
     renderMeme()
 }
 
-
 function renderMeme() {
     const meme = getMeme()
     
@@ -28,3 +27,7 @@ function renderMeme() {
     }
 }
 
+function onSetLineTxt(txt) {
+    setLineTxt(txt)
+    renderMeme()
+}

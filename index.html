@@ -9,6 +9,7 @@
 </head>
 <body onload="onInit()">
     <h1>Meme Generator</h1>
+    <input type="text" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
     <section class="gallery"></section>
     <section class="editor">
         <canvas id="my-canvas" height="500" width="500"></canvas>

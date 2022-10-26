@@ -5,7 +5,7 @@ const gMeme = {
     selectedLineIdx: 0,
     lines: [
     {
-    txt: 'Hello awesome world',
+    txt: '',
     size: 40,
     align: 'left',
     color: 'red'
@@ -15,4 +15,8 @@ const gMeme = {
    
 function getMeme() {
     return gMeme
+}
+
+function setLineTxt(txt) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
