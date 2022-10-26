@@ -11,19 +11,20 @@ function onInit() {
 
 
 function renderMeme() {
+    const meme = getMeme()
+    
     const img = new Image() 
-    img.src = 'img/2.jpg' 
+    img.src = `img/${meme.selectedImgId}.jpg` 
     img.onload = () => {
       gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
       
       gCtx.lineWidth = 2
       gCtx.strokeStyle = 'black'
-      gCtx.fillStyle = 'white'
+      gCtx.fillStyle = `${meme.lines[meme.selectedLineIdx].color}`
   
-      gCtx.font = '40px Arial'
-      gCtx.fillText('hello world', 100, 100) 
-      gCtx.strokeText('hello world', 100, 100) 
+      gCtx.font = `${meme.lines[meme.selectedLineIdx].size}px Arial`
+      gCtx.fillText(`${meme.lines[meme.selectedLineIdx].txt}`, 100, 100) 
+      gCtx.strokeText(`${meme.lines[meme.selectedLineIdx].txt}`, 100, 100) 
     }
-
 }
 
