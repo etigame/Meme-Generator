@@ -28,3 +28,7 @@ function setImg(imgId) {
 function setColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
+
+function changeFontSize(delta) {
+    gMeme.lines[gMeme.selectedLineIdx].size += delta
+}

@@ -42,3 +42,8 @@ function onSetColor(color) {
     setColor(color)
     renderMeme()
 }
+
+function onChangeFontSize(delta) {
+    changeFontSize(delta)
+    renderMeme()
+}

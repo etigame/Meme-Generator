@@ -11,10 +11,12 @@
     <h1>Meme Generator</h1>
     <input type="text" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
     <input type="color" value="#f6b73c" onchange="onSetColor(this.value)">
-    <section class="gallery-list">
-    </section>
+    <button class="btn-increase-font" onclick="onChangeFontSize(1)">A+</button>
+    <button class="btn-decrease-font" onclick="onChangeFontSize(-1)">A-</button>
     <section class="editor">
         <canvas id="my-canvas" height="500" width="500"></canvas>
+    </section>
+    <section class="gallery-list">
     </section>
     
     <script src="js/gallery-service.js"></script>
