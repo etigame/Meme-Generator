@@ -13,6 +13,7 @@ const gMeme = {
     align: 'left',
     color: '',
     stroke: '',
+    font: 'impact',
     pos: {offsetX: 50, offsetY: 100}
     }
     ],
@@ -70,6 +71,7 @@ function addLine(lineId) {
         align: 'left',
         color: '',
         stroke: '',
+        font: 'impact',
         pos: {offsetX: 50, offsetY: getPosY(lineId)} // offsetY should be not specific
     }
     gMeme.lines.push(newLine)
@@ -77,7 +79,7 @@ function addLine(lineId) {
 }
 
 function updateSelectedLine(lineId) {
-    gMeme.selectedLineIdx = lineId // should be base on position x and y of the line
+    gMeme.selectedLineIdx = lineId 
     saveMemeToStorage()
 }
 
