@@ -8,7 +8,7 @@ const gMeme = {
     txt: '',
     size: 40,
     align: 'left',
-    color: 'red'
+    color: ''
     }
     ]
 }
@@ -23,4 +23,8 @@ function setLineTxt(txt) {
 
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
+}
+
+function setColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 }

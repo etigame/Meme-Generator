@@ -32,3 +32,13 @@ function onSetLineTxt(txt) {
     setLineTxt(txt)
     renderMeme()
 }
+
+function onImgSelect(img) {
+    setImg(img.getAttribute('data-id'))
+    renderMeme()
+}
+
+function onSetColor(color) {
+    setColor(color)
+    renderMeme()
+}
