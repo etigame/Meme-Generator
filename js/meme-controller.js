@@ -5,7 +5,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 let gElCanvas
 let gCtx
 
-function onInit() { //should be on main.js?
+function onInit() { 
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
 
@@ -24,14 +24,14 @@ function renderMeme() {
       gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
       
       meme.lines.forEach((line, idx) => {
-        const {txt, size, align, color, stroke, font, pos} = line
+        const {txt, size, color, stroke, font, pos} = line
         if (meme.selectedLineIdx === idx) {
             gCtx.fillStyle = 'rgba(222, 221, 221, 0.319)'
             gCtx.fillRect(pos.offsetX, pos.offsetY, gCtx.measureText(line.txt).width, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent)
         }
         gCtx.lineWidth = 2
         gCtx.textBaseline = 'top'
-        gCtx.strokeStyle = 'black'
+        gCtx.strokeStyle = `${stroke}`
         gCtx.fillStyle = `${color}`
         gCtx.font = `${size}px ${font}`
         gCtx.fillText(txt, pos.offsetX, pos.offsetY) 
@@ -74,8 +74,8 @@ function onDown(ev) {
           pos.y > line.pos.offsetY && pos.y < line.pos.offsetY  + gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
     })
     
-    if (clickedLineIdx === undefined) return 
-    else {
+    if (clickedLineIdx === -1) return 
+    if (clickedLineIdx !== undefined) {
         updateSelectedLine(clickedLineIdx)
         document.querySelector('.input-txt').value = meme.lines[clickedLineIdx].txt
     }
@@ -112,8 +112,18 @@ function onImgSelect(img) {
     renderMeme()
 }
 
-function onSetColor(color) {
-    setColor(color)
+function onSetFontColor(color) {
+    setFontColor(color)
+    renderMeme()
+}
+
+function onSetStrokeColor(color) {
+    setStrokeColor(color)
+    renderMeme()
+}
+
+function onSetFontFamily(fontFamily) {
+    setFontFamily(fontFamily)
     renderMeme()
 }
 
@@ -140,5 +150,26 @@ function onSwitchLine() {
     let {selectedLineIdx} = getMeme()
     
     updateSelectedLine((selectedLineIdx === linesCount - 1) ? 0 : ++selectedLineIdx)
+    renderMeme()
+}
+
+function onAlignLine(direction) {
+    const meme = getMeme()
+    let lineWidth = gCtx.measureText(meme.lines[getSelectedLineIdx()].txt).width
+    let offsetX
+
+    switch (direction) {
+        case 'left':
+            offsetX = 30 
+            break
+        case 'center':
+            offsetX = gElCanvas.width / 2 - lineWidth / 2
+            break
+        case 'right':
+            offsetX = gElCanvas.width - lineWidth - 30
+            break
+    }
+    
+    alignLine(offsetX)
     renderMeme()
 }

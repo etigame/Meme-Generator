@@ -11,12 +11,23 @@
     <h1>Meme Generator</h1>
     <section class="control-box">
         <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
-        <input type="color" value="#f6b73c" oninput="onSetColor(this.value)">
-        <button class="btn-increase-font" onclick="onChangeFontSize(1)">A+</button>
-        <button class="btn-decrease-font" onclick="onChangeFontSize(-1)">A-</button>
-        <button class="btn-add-line" onclick="onAddLine()">Add line</button>
-        <button class="btn-delete-line" onclick="onDeleteLine()">Delete line</button>
-        <button class="btn-switch-line" onclick="onSwitchLine()">Switch line</button>
+        <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
+        <input type="color" value="#da6c6c" class="stroke-color" title="Stroke color" oninput="onSetStrokeColor(this.value)">
+        <select class="select-font" onchange="onSetFontFamily(this.value)">
+            <option value="impact">IMPACT</option>
+            <option value="arial">ARIAL</option>
+            <option value="monospace">MONOSPACE</option>
+            <option value="futura">FUTURA</option>
+            <option value="georgia">GEORGIA</option>
+        </select>
+        <button class="btn-increase-font" title="Increase font" onclick="onChangeFontSize(1)">A+</button>
+        <button class="btn-decrease-font" title="Decrease font" onclick="onChangeFontSize(-1)">A-</button>
+        <button class="btn-add-line" title="Add line" onclick="onAddLine()">Add line</button>
+        <button class="btn-delete-line" title="Delete font" onclick="onDeleteLine()">Delete line</button>
+        <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">Switch line</button>
+        <button class="btn-align-left" title="Align left" onclick="onAlignLine('left')">Align left</button>
+        <button class="btn-align-center" title="Align center" onclick="onAlignLine('center')">Align center</button>
+        <button class="btn-align-right" title="Align right" onclick="onAlignLine('right')">Align right</button>
     </section>
 
     <section class="editor">

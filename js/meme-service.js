@@ -10,14 +10,12 @@ const gMeme = {
     id: 1,
     txt: '',
     size: 40,
-    align: 'left',
-    color: '',
-    stroke: '',
+    color: 'white',
+    stroke: 'black',
     font: 'impact',
-    pos: {offsetX: 50, offsetY: 100}
+    pos: {offsetX: 30, offsetY: 100}
     }
     ],
-
 }
    
 function getMeme() {
@@ -28,7 +26,7 @@ function getPosY(lineId) {
     let posY 
     switch (lineId) {
         case 1:
-            posY = 100
+            posY = 50
             break
         case 2: 
             posY = 400
@@ -39,11 +37,16 @@ function getPosY(lineId) {
     return posY
 }
 
+function getSelectedLineIdx() {
+    return gMeme.selectedLineIdx
+}
+
 function countLines() {
     return gMeme.lines.length
 }
 
 function setLineTxt(txt) {
+    if (gMeme.lines.length === 0) return
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
     saveMemeToStorage()
 }
@@ -53,8 +56,18 @@ function setImg(imgId) {
     saveMemeToStorage()
 }
 
-function setColor(color) {
+function setFontColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
+    saveMemeToStorage()
+}
+
+function setStrokeColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].stroke = color
+    saveMemeToStorage()
+}
+
+function setFontFamily(fontFamily) {
+    gMeme.lines[gMeme.selectedLineIdx].font = fontFamily
     saveMemeToStorage()
 }
 
@@ -68,7 +81,7 @@ function addLine(lineId) {
         id: lineId,
         txt: '',
         size: 40,
-        align: 'left',
+        // align: 'left',
         color: '',
         stroke: '',
         font: 'impact',
@@ -85,6 +98,11 @@ function deleteLine() {
 
 function updateSelectedLine(lineId) {
     gMeme.selectedLineIdx = lineId 
+    saveMemeToStorage()
+}
+
+function alignLine(offsetX) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.offsetX = offsetX
     saveMemeToStorage()
 }
 
