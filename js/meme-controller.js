@@ -51,14 +51,15 @@ function onChangeFontSize(delta) {
 }
 
 function onAddLine() {
-    addLine()
-    updateSelectedLine()
+    let linesCounter = countLines()
+    updateSelectedLine(linesCounter)
+    addLine(++linesCounter)
     document.querySelector('.input-txt').value = ''
     renderMeme()
 }
 
 function onSwitchLine() {
-    // calls onLineSelect
+    updateSelectedLine()
 }
 
 function onSelecetLine() {

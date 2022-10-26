@@ -7,12 +7,13 @@ const gMeme = {
     selectedLineIdx: 0,
     lines: [
     {
+    id: 1,
     txt: '',
     size: 40,
     align: 'left',
     color: '',
     stroke: '',
-    pos: {offsetX: 100, offsetY: 100}
+    pos: {offsetX: 50, offsetY: 100}
     }
     ],
 
@@ -20,6 +21,25 @@ const gMeme = {
    
 function getMeme() {
     return gMeme
+}
+
+function getPosY(lineId) {
+    let posY 
+    switch (lineId) {
+        case 1:
+            posY = 100
+            break
+        case 2: 
+            posY = 400
+            break
+        default:
+            posY = 250
+    } 
+    return posY
+}
+
+function countLines() {
+    return gMeme.lines.length
 }
 
 function setLineTxt(txt) {
@@ -42,21 +62,22 @@ function changeFontSize(delta) {
     saveMemeToStorage()
 }
 
-function addLine() {
+function addLine(lineId) {
     const newLine = {
+        id: lineId,
         txt: '',
         size: 40,
         align: 'left',
         color: '',
         stroke: '',
-        pos: {offsetX: 100, offsetY: 400} // offsetY should be not specific
+        pos: {offsetX: 50, offsetY: getPosY(lineId)} // offsetY should be not specific
     }
     gMeme.lines.push(newLine)
     saveMemeToStorage()
 }
 
-function updateSelectedLine() {
-    gMeme.selectedLineIdx = 1 // should be base on position x and y of the line
+function updateSelectedLine(lineId) {
+    gMeme.selectedLineIdx = lineId // should be base on position x and y of the line
     saveMemeToStorage()
 }
 
