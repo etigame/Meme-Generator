@@ -173,3 +173,9 @@ function onAlignLine(direction) {
     alignLine(offsetX)
     renderMeme()
 }
+
+function onDownload(elLink) {
+    const memeContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = memeContent
+    elLink.download = 'My-Meme' 
+}
