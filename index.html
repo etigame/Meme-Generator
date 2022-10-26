@@ -9,13 +9,19 @@
 </head>
 <body onload="onInit()">
     <h1>Meme Generator</h1>
-    <input type="text" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
-    <input type="color" value="#f6b73c" onchange="onSetColor(this.value)">
-    <button class="btn-increase-font" onclick="onChangeFontSize(1)">A+</button>
-    <button class="btn-decrease-font" onclick="onChangeFontSize(-1)">A-</button>
+    <section class="control-box">
+        <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
+        <input type="color" value="#f6b73c" oninput="onSetColor(this.value)">
+        <button class="btn-increase-font" onclick="onChangeFontSize(1)">A+</button>
+        <button class="btn-decrease-font" onclick="onChangeFontSize(-1)">A-</button>
+        <button class="btn-add-line" onclick="onAddLine()">Add line</button>
+        <button class="btn-switch-line" onclick="onSwitchLine()">Switch line</button>
+    </section>
+
     <section class="editor">
         <canvas id="my-canvas" height="500" width="500"></canvas>
     </section>
+
     <section class="gallery-list">
     </section>
     

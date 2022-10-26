@@ -18,13 +18,15 @@ function renderMeme() {
     img.onload = () => {
       gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
       
-      gCtx.lineWidth = 2
-      gCtx.strokeStyle = 'black'
-      gCtx.fillStyle = `${meme.lines[meme.selectedLineIdx].color}`
-  
-      gCtx.font = `${meme.lines[meme.selectedLineIdx].size}px Arial`
-      gCtx.fillText(`${meme.lines[meme.selectedLineIdx].txt}`, 100, 100) 
-      gCtx.strokeText(`${meme.lines[meme.selectedLineIdx].txt}`, 100, 100) 
+      meme.lines.forEach((line, idx) => {
+        const {txt, size, align, color, stroke, pos} = line
+        gCtx.lineWidth = 2
+        gCtx.strokeStyle = 'black'
+        gCtx.fillStyle = `${color}`
+        gCtx.font = `${size}px impact`
+        gCtx.fillText(txt, pos.offsetX, pos.offsetY) 
+        gCtx.strokeText(txt, pos.offsetX, pos.offsetY) 
+      })
     }
 }
 
@@ -46,4 +48,20 @@ function onSetColor(color) {
 function onChangeFontSize(delta) {
     changeFontSize(delta)
     renderMeme()
+}
+
+function onAddLine() {
+    addLine()
+    updateSelectedLine()
+    document.querySelector('.input-txt').value = ''
+    renderMeme()
+}
+
+function onSwitchLine() {
+    // calls onLineSelect
+}
+
+function onSelecetLine() {
+    //when user clicks the line on the canvas
+    //selectLine in the service updates the gmeme.selectedline
 }

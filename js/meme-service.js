@@ -8,9 +8,12 @@ const gMeme = {
     txt: '',
     size: 40,
     align: 'left',
-    color: ''
+    color: '',
+    stroke: '',
+    pos: {offsetX: 100, offsetY: 100}
     }
-    ]
+    ],
+
 }
    
 function getMeme() {
@@ -31,4 +34,20 @@ function setColor(color) {
 
 function changeFontSize(delta) {
     gMeme.lines[gMeme.selectedLineIdx].size += delta
+}
+
+function addLine() {
+    const newLine = {
+        txt: '',
+        size: 40,
+        align: 'left',
+        color: '',
+        stroke: '',
+        pos: {offsetX: 100, offsetY: 400} // offsetY should be not specific
+    }
+    gMeme.lines.push(newLine)
+}
+
+function updateSelectedLine() {
+    gMeme.selectedLineIdx = 1 // should be base on position x and y of the line
 }
