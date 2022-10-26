@@ -72,9 +72,14 @@ function addLine(lineId) {
         color: '',
         stroke: '',
         font: 'impact',
-        pos: {offsetX: 50, offsetY: getPosY(lineId)} // offsetY should be not specific
+        pos: {offsetX: 50, offsetY: getPosY(lineId)} 
     }
     gMeme.lines.push(newLine)
+    saveMemeToStorage()
+}
+
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     saveMemeToStorage()
 }
 

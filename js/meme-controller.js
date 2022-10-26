@@ -74,8 +74,10 @@ function onDown(ev) {
           pos.y > line.pos.offsetY && pos.y < line.pos.offsetY  + gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
     })
     
-    if (clickedLineIdx !== undefined) {
+    if (clickedLineIdx === undefined) return 
+    else {
         updateSelectedLine(clickedLineIdx)
+        document.querySelector('.input-txt').value = meme.lines[clickedLineIdx].txt
     }
       
     renderMeme()
@@ -128,6 +130,11 @@ function onAddLine() {
     renderMeme()
 }
 
+function onDeleteLine() {
+    deleteLine()
+    renderMeme()
+}
+
 function onSwitchLine() {
     const linesCount = countLines()
     let {selectedLineIdx} = getMeme()
@@ -135,10 +142,3 @@ function onSwitchLine() {
     updateSelectedLine((selectedLineIdx === linesCount - 1) ? 0 : ++selectedLineIdx)
     renderMeme()
 }
-
-function onSelecetLine() {
-    //when user clicks the line on the canvas
-    //selectLine in the service updates the gmeme.selectedline
-}
-
-// on mouse doun >> if clicked line, else return >> gmeme.lines.is selected? >> render with color 
