@@ -28,13 +28,14 @@
     <section class="gallery-bar main-layout full">
         <section class="gallery-bar-content flex row space-between align-center">
             <section class="search">
-                <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Search">
-                <datalist id="ice-cream-flavors">
-                <option value="Chocolate">
-                <option value="Coconut">
-                <option value="Mint">
-                <option value="Strawberry">
-                <option value="Vanilla">
+                <input list="keywords" class="search-keyword" placeholder="Search keyword">
+                <img src="img/search-icon.png" class="search-icon" alt="search-icon">
+                <datalist id="keywords">
+                    <option value="happy">
+                    <option value="animal">
+                    <option value="sad">
+                    <option value="funny">
+                    <option value="kids">
                 </datalist>
             </section>
             <section class="keywords-bar flex space-between align-center">
@@ -44,31 +45,25 @@
                 <h2>Funny</h2>
                 <h2>Kids</h2>
             </section>
-            <button>Upload Image</button>
-            <button class="btn-flex-meme">I'm flexible</button>
+            <button class="btn-upload flex row space-between align-center">Upload
+                <img src="img/upload-icon.png" alt="">
+            </button>
+            <button class="btn-surprise-meme flex row space-between align-center">Surprise me!
+                <img src="img/surprise-icon.png" alt="">
+            </button>
         </section>
     </section>
 
-    <section class="gallery-list grid"></section>
+    <section class="gallery-container main-layout full">
+        <section class="gallery-list grid">
+        </section>
+    </section>
+
     
-
-    <section id="about" class="about main-layout full">
-        <img src="" alt="">
-        <h1>hello me!</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem mollitia suscipit laudantium recusandae iure, in similique tempora nulla eveniet doloribus aliquam placeat, aliquid blanditiis fugit ipsa ab, aperiam modi facere.</p>
-        <section class="social-links">
-            <ul class="clean-list">
-                <li>Linkdin</li>
-                <li>Facebook</li>
-                <li>Github</li>
-            </ul>
-        </section>
-    </section>
-
     <section class="editor-page hidden">
         <section class="editor-content flex row space-between align-center">
             <canvas id="my-canvas" height="450" width="450"></canvas>
-
+            
             <section class="control-box">
                 <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
                 <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
@@ -99,10 +94,39 @@
             </section>
         </section>
     </section>
+    
+    <section id="about" class="about main-layout full">
+        <section class="about-container flex row space-around align-center">
+            <img src="img/me.jpg" class="img-me" alt="me">
+            <section class="about-content flex column space-between align-start">
+                <h2>Eti Gal-Or Mendelovich</h1>
+                <p>
+                    I am a full-motivated developer, curious and hard working person.<br> Always in growth and learning process. Very responsible and reliable.<br> Love to work in teams and excited of new challenges.
+                </p>
+                <section class="social-links">
+                    <ul class="clean-list flex row space-between align-center">
+                        <li>
+                            <a href="https://www.linkedin.com/in/eti-gal-or-mendelovich-850795142/" target="_blank"></a>
+                            <img src="img/linkedin-logo.png" alt="linkedin"/>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=1053817565"
+                            target="_blank"></a>
+                            <img src="img/facebook-logo.png" alt="facebook"/>
+                        </li>
+                        <li>
+                            <a href="https://github.com/etigame" target="_blank"></a>
+                            <img src="img/github-logo.png" alt="github"/>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+    </section>
 
-    <footer class="main-footer main-layout full">
+    <footer class="main-footer flex align-center space-around main-layout full">
         <div class="logo"><img src="img/logo.png" alt="logo"></div>
-        <p>Coffee rights</p>
+        <p>All Rights Reserved ©</p>
     </footer>
 
     <script src="js/storage-service.js"></script>
