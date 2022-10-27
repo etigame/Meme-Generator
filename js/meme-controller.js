@@ -20,9 +20,13 @@ function renderMeme() {
     
     const img = new Image() 
     img.src = `img/${meme.selectedImgId}.jpg` 
+    const imgWidth = img.naturalWidth
+    const imgHeight = img.naturalHeight
+    gElCanvas.width = (imgHeight * gElCanvas.height) / imgWidth
+    // gElCanvas.setAttribute('width', ((imgHeight * gElCanvas.height) / imgWidth)) 
     img.onload = () => {
-      gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-      
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+    
       meme.lines.forEach((line, idx) => {
         const {txt, size, color, stroke, font, pos} = line
         if (meme.selectedLineIdx === idx) {

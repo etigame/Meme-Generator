@@ -1,4 +1,11 @@
 :root {
+    /* pallet */
+    ----clr-primary: #ff7f00;
+    ----clr3: #000000;
+    ----clr2: #7a7a7a;
+    ----clr1: #e3e3e3;
+    ----clr0: #ffffff;
+    
     /* BP */
     --l: 1000px;
     --m: 800px;
@@ -10,6 +17,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* TYPOGRAPHY */
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url(fonts/montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url(fonts/montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url(fonts/montserrat/Montserrat-Medium.ttf);
+}
+@font-face {
+    font-family: Montserrat-Thin;
+    src: url(fonts/montserrat/Montserrat-Thin.ttf);
+}
+
+
 
 body {
     text-align: center;
@@ -103,6 +130,10 @@ canvas {
 
 
 /* COMPONENTS */
+
+.main-header-content {
+    background-color: var(----clr-primary);
+}
 
 .gallery-list {
     grid-template-columns: repeat(auto-fill, 150px);

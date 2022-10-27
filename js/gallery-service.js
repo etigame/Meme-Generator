@@ -19,13 +19,13 @@ const gImgs = [
     {id: 16, url: 'img/16.jpg', keywords: ['funny', 'cat']},
     {id: 17, url: 'img/17.jpg', keywords: ['funny', 'cat']},
     {id: 18, url: 'img/18.jpg', keywords: ['funny', 'cat']},
-    {id: 19, url: 'img/19.jpg', keywords: ['funny', 'cat']},
-    {id: 20, url: 'img/20.jpg', keywords: ['funny', 'cat']},
-    {id: 21, url: 'img/21.jpg', keywords: ['funny', 'cat']},
-    {id: 22, url: 'img/22.jpg', keywords: ['funny', 'cat']},
-    {id: 23, url: 'img/23.jpg', keywords: ['funny', 'cat']},
-    {id: 24, url: 'img/24.jpg', keywords: ['funny', 'cat']},
-    {id: 25, url: 'img/25.jpg', keywords: ['funny', 'cat']}
+    // {id: 19, url: 'img/19.jpg', keywords: ['funny', 'cat']},
+    // {id: 20, url: 'img/20.jpg', keywords: ['funny', 'cat']},
+    // {id: 21, url: 'img/21.jpg', keywords: ['funny', 'cat']},
+    // {id: 22, url: 'img/22.jpg', keywords: ['funny', 'cat']},
+    // {id: 23, url: 'img/23.jpg', keywords: ['funny', 'cat']},
+    // {id: 24, url: 'img/24.jpg', keywords: ['funny', 'cat']},
+    // {id: 25, url: 'img/25.jpg', keywords: ['funny', 'cat']}
 ];
 
 function getImages() { 
