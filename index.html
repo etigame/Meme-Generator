@@ -8,36 +8,91 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body onload="onInit()">
-    <h1>Meme Generator</h1>
-    <section class="control-box">
-        <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
-        <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
-        <input type="color" value="#da6c6c" class="stroke-color" title="Stroke color" oninput="onSetStrokeColor(this.value)">
-        <select class="select-font" onchange="onSetFontFamily(this.value)">
-            <option value="impact">IMPACT</option>
-            <option value="arial">ARIAL</option>
-            <option value="monospace">MONOSPACE</option>
-            <option value="futura">FUTURA</option>
-            <option value="georgia">GEORGIA</option>
-        </select>
-        <button class="btn-increase-font" title="Increase font" onclick="onChangeFontSize(1)">A+</button>
-        <button class="btn-decrease-font" title="Decrease font" onclick="onChangeFontSize(-1)">A-</button>
-        <button class="btn-add-line" title="Add line" onclick="onAddLine()">Add line</button>
-        <button class="btn-delete-line" title="Delete font" onclick="onDeleteLine()">Delete line</button>
-        <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">Switch line</button>
-        <button class="btn-align-left" title="Align left" onclick="onAlignLine('left')">Align left</button>
-        <button class="btn-align-center" title="Align center" onclick="onAlignLine('center')">Align center</button>
-        <button class="btn-align-right" title="Align right" onclick="onAlignLine('right')">Align right</button>
-        <button class="btn-download"><a href="#" download="file-name" onclick="onDownload(this)">Download</a></button>
-    </section>
+    <nav class="nav-bar">
+        <h1 class="logo">Logo</h2>
+        <button class="translate">He</button>
+        <ul>
+            <li><a href="">Gallery</a></li>
+            <li><a href="">My Memes</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    </nav>
 
-    <section class="editor">
+    <section class="editor-page hidden">
+        <section class="control-box">
+            <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
+            <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
+            <input type="color" value="#da6c6c" class="stroke-color" title="Stroke color" oninput="onSetStrokeColor(this.value)">
+            <select class="select-font" onchange="onSetFontFamily(this.value)">
+                <option value="impact">IMPACT</option>
+                <option value="arial">ARIAL</option>
+                <option value="monospace">MONOSPACE</option>
+                <option value="futura">FUTURA</option>
+                <option value="georgia">GEORGIA</option>
+            </select>
+            <button class="btn-increase-font" title="Increase font" onclick="onChangeFontSize(1)">A+</button>
+            <button class="btn-decrease-font" title="Decrease font" onclick="onChangeFontSize(-1)">A-</button>
+            <button class="btn-add-line" title="Add line" onclick="onAddLine()">Add line</button>
+            <button class="btn-delete-line" title="Delete font" onclick="onDeleteLine()">Delete line</button>
+            <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">Switch line</button>
+            <button class="btn-align-left" title="Align left" onclick="onAlignLine('left')">Align left</button>
+            <button class="btn-align-center" title="Align center" onclick="onAlignLine('center')">Align center</button>
+            <button class="btn-align-right" title="Align right" onclick="onAlignLine('right')">Align right</button>
+            <section class="stickers-container">
+                <h2>Sticker</h2>
+                <h2>Sticker</h2>
+                <h2>Sticker</h2>
+            </section>
+            <button class="save">Save</button>
+            <button class="btn-download"><a href="#" download="file-name" onclick="onDownload(this)">Download</a></button>
+            <button class="share">Share</button>
+        </section>
+
         <canvas id="my-canvas" height="500" width="500"></canvas>
     </section>
 
-    <section class="gallery-list">
+    <section class="gallery-page">
+        <section class="gallery-bar">
+            <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Search">
+            <datalist id="ice-cream-flavors">
+                <option value="Chocolate">
+                <option value="Coconut">
+                <option value="Mint">
+                <option value="Strawberry">
+                <option value="Vanilla">
+            </datalist>
+            <section class="keywords-bar">
+                <h2>Happy</h2>
+                <h2>Animal</h2>
+                <h2>Sad</h2>
+                <h2>Funny</h2>
+                <h2>Kids</h2>
+            </section>
+            <button>Upload Image</button>
+            <button class="btn-flex-meme">I'm flexible</button>
+        </section>
+
+        <section class="gallery-list"></section>
     </section>
-    
+
+    <section class="about">
+        <img src="" alt="">
+        <h1>hello me!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem mollitia suscipit laudantium recusandae iure, in similique tempora nulla eveniet doloribus aliquam placeat, aliquid blanditiis fugit ipsa ab, aperiam modi facere.</p>
+        <section class="social-links">
+            <ul>
+                <li>Linkdin</li>
+                <li>Facebook</li>
+                <li>Github</li>
+            </ul>
+        </section>
+    </section>
+
+    <footer>
+        <h1>Logo</h1>
+        <p>Coffee rights</p>
+    </footer>
+
     <script src="js/storage-service.js"></script>
     <script src="js/gallery-service.js"></script>
     <script src="js/meme-service.js"></script>
