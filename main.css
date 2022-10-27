@@ -37,7 +37,6 @@
 }
 
 
-
 body {
     text-align: center;
 }
@@ -131,9 +130,50 @@ canvas {
 
 /* COMPONENTS */
 
-.main-header-content {
+/* main-header */
+.main-header {
     background-color: var(----clr-primary);
 }
+
+.main-header-content .logo {
+    padding-block-start: 10px;
+}
+
+/* nav-links */
+.nav-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* this allows the a to be all the space */
+    color: var(----clr0);
+    font-family: Montserrat-Regular, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-links span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: var(----clr2);
+    padding: 0 15px;
+}
+
+.nav-links a:hover {
+    box-shadow: inset 0px -4px 0 var(----clr3);
+    color: var(----clr3);
+}
+
+.img-globe {
+    object-fit: cover;
+    height: 100%;
+    margin: auto;
+    cursor: pointer;
+    margin-inline-end: 30px;
+}
+
+
 
 .gallery-list {
     grid-template-columns: repeat(auto-fill, 150px);
