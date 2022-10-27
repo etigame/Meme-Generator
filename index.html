@@ -7,16 +7,56 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body onload="onInit()">
-    <nav class="nav-bar">
+<body class="main-layout" onload="onInit()">
+    <nav class="nav-bar flex row space-between align-center main-layout full">
         <h1 class="logo">Logo</h2>
-        <button class="translate">He</button>
-        <ul>
-            <li><a href="">Gallery</a></li>
-            <li><a href="">My Memes</a></li>
-            <li><a href="">About</a></li>
-        </ul>
+        <section class="main-nav flex">
+            <button class="translate">He</button>
+            <ul class="nav-links clean-list flex">
+                <li><a href="">Gallery</a></li>
+                <li><a href="">My Memes</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </section>
     </nav>
+    
+    <section class="gallery-bar flex row space-between align-center main-layout full">
+        <section class="search">
+            <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Search">
+            <datalist id="ice-cream-flavors">
+            <option value="Chocolate">
+            <option value="Coconut">
+            <option value="Mint">
+            <option value="Strawberry">
+            <option value="Vanilla">
+            </datalist>
+        </section>
+        <section class="keywords-bar flex space-between align-center">
+            <h2>Happy</h2>
+            <h2>Animal</h2>
+            <h2>Sad</h2>
+            <h2>Funny</h2>
+            <h2>Kids</h2>
+        </section>
+        <button>Upload Image</button>
+        <button class="btn-flex-meme">I'm flexible</button>
+    </section>
+    <section class="gallery-page">
+        <section class="gallery-list grid"></section>
+    </section>
+
+    <section class="about main-layout full">
+        <img src="" alt="">
+        <h1>hello me!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem mollitia suscipit laudantium recusandae iure, in similique tempora nulla eveniet doloribus aliquam placeat, aliquid blanditiis fugit ipsa ab, aperiam modi facere.</p>
+        <section class="social-links">
+            <ul class="clean-list">
+                <li>Linkdin</li>
+                <li>Facebook</li>
+                <li>Github</li>
+            </ul>
+        </section>
+    </section>
 
     <section class="editor-page hidden">
         <section class="control-box">
@@ -51,44 +91,7 @@
         <canvas id="my-canvas" height="500" width="500"></canvas>
     </section>
 
-    <section class="gallery-page">
-        <section class="gallery-bar">
-            <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Search">
-            <datalist id="ice-cream-flavors">
-                <option value="Chocolate">
-                <option value="Coconut">
-                <option value="Mint">
-                <option value="Strawberry">
-                <option value="Vanilla">
-            </datalist>
-            <section class="keywords-bar">
-                <h2>Happy</h2>
-                <h2>Animal</h2>
-                <h2>Sad</h2>
-                <h2>Funny</h2>
-                <h2>Kids</h2>
-            </section>
-            <button>Upload Image</button>
-            <button class="btn-flex-meme">I'm flexible</button>
-        </section>
-
-        <section class="gallery-list"></section>
-    </section>
-
-    <section class="about">
-        <img src="" alt="">
-        <h1>hello me!</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem mollitia suscipit laudantium recusandae iure, in similique tempora nulla eveniet doloribus aliquam placeat, aliquid blanditiis fugit ipsa ab, aperiam modi facere.</p>
-        <section class="social-links">
-            <ul>
-                <li>Linkdin</li>
-                <li>Facebook</li>
-                <li>Github</li>
-            </ul>
-        </section>
-    </section>
-
-    <footer>
+    <footer class="main-layout full">
         <h1>Logo</h1>
         <p>Coffee rights</p>
     </footer>
