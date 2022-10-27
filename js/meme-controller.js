@@ -110,6 +110,7 @@ function onSetLineTxt(txt) {
 function onImgSelect(img) {
     setImg(img.getAttribute('data-id'))
     renderMeme()
+    showEditor()
 }
 
 function onSetFontColor(color) {
@@ -178,4 +179,18 @@ function onDownload(elLink) {
     const memeContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = memeContent
     elLink.download = 'My-Meme' 
+}
+
+function showGallery() {
+    document.querySelector('.editor-page').classList.add('hidden')
+    document.querySelector('.gallery-bar').classList.remove('hidden')
+    document.querySelector('.gallery-list').classList.remove('hidden')
+    document.querySelector('.about').classList.remove('hidden')
+}
+
+function showEditor() {
+    document.querySelector('.editor-page').classList.remove('hidden')
+    document.querySelector('.gallery-bar').classList.add('hidden')
+    document.querySelector('.gallery-list').classList.add('hidden')
+    document.querySelector('.about').classList.add('hidden')
 }
