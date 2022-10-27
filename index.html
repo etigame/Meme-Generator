@@ -8,44 +8,49 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body class="main-layout" onload="onInit()">
-    <nav class="nav-bar flex row space-between align-center main-layout full">
-        <h1 class="logo">Logo</h2>
-        <section class="main-nav flex">
-            <button class="translate">He</button>
-            <ul class="nav-links clean-list flex">
-                <li><a href="">Gallery</a></li>
-                <li><a href="">My Memes</a></li>
-                <li><a href="">About</a></li>
-            </ul>
+    <header class="main-header main-layout full">
+        <!-- another section needed because layout of max-width given to direct child -->
+        <section class="main-header-content flex row space-between align-center">
+            <div class="logo">Memegen</div>
+            <nav class="main-nav flex">
+                <button class="translate">He</button>
+                <ul class="nav-links clean-list flex">
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">My Memes</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </nav>
         </section>
-    </nav>
+    </header>
     
-    <section class="gallery-bar flex row space-between align-center main-layout full">
-        <section class="search">
-            <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Search">
-            <datalist id="ice-cream-flavors">
-            <option value="Chocolate">
-            <option value="Coconut">
-            <option value="Mint">
-            <option value="Strawberry">
-            <option value="Vanilla">
-            </datalist>
+    <section class="gallery-bar main-layout full hidden">
+        <section class="gallery-bar-content flex row space-between align-center">
+            <section class="search">
+                <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" placeholder="Search">
+                <datalist id="ice-cream-flavors">
+                <option value="Chocolate">
+                <option value="Coconut">
+                <option value="Mint">
+                <option value="Strawberry">
+                <option value="Vanilla">
+                </datalist>
+            </section>
+            <section class="keywords-bar flex space-between align-center">
+                <h2>Happy</h2>
+                <h2>Animal</h2>
+                <h2>Sad</h2>
+                <h2>Funny</h2>
+                <h2>Kids</h2>
+            </section>
+            <button>Upload Image</button>
+            <button class="btn-flex-meme">I'm flexible</button>
         </section>
-        <section class="keywords-bar flex space-between align-center">
-            <h2>Happy</h2>
-            <h2>Animal</h2>
-            <h2>Sad</h2>
-            <h2>Funny</h2>
-            <h2>Kids</h2>
-        </section>
-        <button>Upload Image</button>
-        <button class="btn-flex-meme">I'm flexible</button>
-    </section>
-    <section class="gallery-page">
-        <section class="gallery-list grid"></section>
     </section>
 
-    <section class="about main-layout full">
+    <section class="gallery-list grid hidden"></section>
+    
+
+    <section class="about main-layout full hidden">
         <img src="" alt="">
         <h1>hello me!</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem mollitia suscipit laudantium recusandae iure, in similique tempora nulla eveniet doloribus aliquam placeat, aliquid blanditiis fugit ipsa ab, aperiam modi facere.</p>
@@ -58,41 +63,43 @@
         </section>
     </section>
 
-    <section class="editor-page hidden">
-        <section class="control-box">
-            <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
-            <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
-            <input type="color" value="#da6c6c" class="stroke-color" title="Stroke color" oninput="onSetStrokeColor(this.value)">
-            <select class="select-font" onchange="onSetFontFamily(this.value)">
-                <option value="impact">IMPACT</option>
-                <option value="arial">ARIAL</option>
-                <option value="monospace">MONOSPACE</option>
-                <option value="futura">FUTURA</option>
-                <option value="georgia">GEORGIA</option>
-            </select>
-            <button class="btn-increase-font" title="Increase font" onclick="onChangeFontSize(1)">A+</button>
-            <button class="btn-decrease-font" title="Decrease font" onclick="onChangeFontSize(-1)">A-</button>
-            <button class="btn-add-line" title="Add line" onclick="onAddLine()">Add line</button>
-            <button class="btn-delete-line" title="Delete font" onclick="onDeleteLine()">Delete line</button>
-            <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">Switch line</button>
-            <button class="btn-align-left" title="Align left" onclick="onAlignLine('left')">Align left</button>
-            <button class="btn-align-center" title="Align center" onclick="onAlignLine('center')">Align center</button>
-            <button class="btn-align-right" title="Align right" onclick="onAlignLine('right')">Align right</button>
-            <section class="stickers-container">
-                <h2>Sticker</h2>
-                <h2>Sticker</h2>
-                <h2>Sticker</h2>
-            </section>
-            <button class="save">Save</button>
-            <button class="btn-download"><a href="#" download="file-name" onclick="onDownload(this)">Download</a></button>
-            <button class="share">Share</button>
-        </section>
+    <section class="editor-page">
+        <section class="editor-content flex row space-between align-center">
+            <canvas id="my-canvas" height="450" width="450"></canvas>
 
-        <canvas id="my-canvas" height="500" width="500"></canvas>
+            <section class="control-box">
+                <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
+                <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
+                <input type="color" value="#da6c6c" class="stroke-color" title="Stroke color" oninput="onSetStrokeColor(this.value)">
+                <select class="select-font" onchange="onSetFontFamily(this.value)">
+                    <option value="impact">IMPACT</option>
+                    <option value="arial">ARIAL</option>
+                    <option value="monospace">MONOSPACE</option>
+                    <option value="futura">FUTURA</option>
+                    <option value="georgia">GEORGIA</option>
+                </select>
+                <button class="btn-increase-font" title="Increase font" onclick="onChangeFontSize(1)">A+</button>
+                <button class="btn-decrease-font" title="Decrease font" onclick="onChangeFontSize(-1)">A-</button>
+                <button class="btn-add-line" title="Add line" onclick="onAddLine()">Add line</button>
+                <button class="btn-delete-line" title="Delete font" onclick="onDeleteLine()">Delete line</button>
+                <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">Switch line</button>
+                <button class="btn-align-left" title="Align left" onclick="onAlignLine('left')">Align left</button>
+                <button class="btn-align-center" title="Align center" onclick="onAlignLine('center')">Align center</button>
+                <button class="btn-align-right" title="Align right" onclick="onAlignLine('right')">Align right</button>
+                <section class="stickers-container">
+                    <h2>Sticker</h2>
+                    <h2>Sticker</h2>
+                    <h2>Sticker</h2>
+                </section>
+                <button class="save">Save</button>
+                <button class="btn-download"><a href="#" download="file-name" onclick="onDownload(this)">Download</a></button>
+                <button class="share">Share</button>
+            </section>
+        </section>
     </section>
 
-    <footer class="main-layout full">
-        <h1>Logo</h1>
+    <footer class="main-footer main-layout full">
+        <div class="logo">Memegen</div>
         <p>Coffee rights</p>
     </footer>
 
