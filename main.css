@@ -38,9 +38,21 @@
     src: url(fonts/montserrat/Montserrat-Thin.ttf);
 }
 
+/* BASIC */
 
 body {
     text-align: center;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform .1s; 
+}
+
+button:hover {
+    transform: scale(1.2);
 }
 
 /* HELPERS */
@@ -225,18 +237,9 @@ canvas {
     font-size: 1.25rem;
     font-family: Montserrat-regular;
     padding: 0.4em;
-    cursor: pointer;
     background-color: var(--clr-secondary1);
-    border: none;
-    border-radius: 12px;
     color: var(--clr0);
-    transition: transform .1s; 
 }
-
-.btn-upload:hover {
-    transform: scale(1.2);
-}
-
 
 .btn-upload img {
     height: 20px;
@@ -248,18 +251,9 @@ canvas {
     font-size: 1.25rem;
     font-family: Montserrat-regular;
     padding: 0.4em;
-    cursor: pointer;
     background-color: var(--clr-secondary2);
-    border: none;
-    border-radius: 12px;
     color: var(--clr0);
-    transition: transform .1s; 
 }
-
-.btn-surprise-meme:hover {
-    transform: scale(1.2);
-}
-
 
 .btn-surprise-meme img {
     height: 20px;
@@ -289,9 +283,114 @@ canvas {
     transform: scale(1.2);
 }
 
+/* editor-page */
+.editor-page {
+    background-color: var(--clr1);
+}
+
+/* control-box */
+.control-box {
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(5, 10vh);
+    grid-template-rows: 10vh 10vh 10vh 10vh 15vh 10vh;
+    gap: 10px;
+    grid-template-areas: 
+    'input input input input input'
+    '. switch addline delete .'
+    'increase decrease aleft acenter aright'
+    'select select select strokecolor fontcolor'
+    'stickers stickers stickers stickers stickers'
+    '. save download share .';
+}
+
+.control-box button {
+    background-color: var(--clr0);
+}
+
+.control-box button img {
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    object-fit: cover;
+}
+
+.input-txt {
+grid-area: input;
+border: none;
+border-radius: 12px;
+font-family: Montserrat-regular;
+font-size: 1.25rem;
+padding: 0.5em;
+}
+
+.btn-switch-line {
+grid-area: switch;
+}
+
+.btn-add-line {
+grid-area: addline;
+}
+
+.btn-delete-line {
+grid-area: delete;
+}
+
+.btn-increase-font {
+grid-area: increase;
+}
+
+.btn-decrease-font {
+grid-area: decrease;
+}
+
+.btn-align-left {
+grid-area: aleft;
+}
+
+.btn-align-center {
+grid-area: acenter;
+}
+
+.btn-align-right {
+grid-area: aright;
+}
+
+.select-font {
+grid-area: select;
+border: none;
+border-radius: 12px;
+font-family: Montserrat-regular;
+font-size: 1.25rem;
+padding: 0.5em;
+}
+
+.stroke-color {
+grid-area: strokecolor;
+}
+
+.font-color {
+grid-area: fontcolor;
+}
+
+.stickers-container {
+grid-area: stickers;
+}
+
+.btn-save {
+grid-area: save;
+}
+
+.btn-download {
+grid-area: download;
+}
+
+.btn-share {
+grid-area: share;
+}
+
 /* canves */
 canvas {
-    border: 1px solid black;
     display: block;
     margin: auto;
 }
@@ -306,7 +405,6 @@ canvas {
     height: 30vh;
     width: 30vh;
     object-fit: cover;
-    margin-inline-start: 75px;
 }
 
 .about h2 {

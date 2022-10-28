@@ -60,14 +60,38 @@
     </section>
 
     
-    <section class="editor-page hidden">
+    <section class="editor-page hidden main-layout full">
         <section class="editor-content flex row space-between align-center">
             <canvas id="my-canvas" height="450" width="450"></canvas>
             
-            <section class="control-box">
+            <section class="control-box grid">
                 <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
-                <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
-                <input type="color" value="#da6c6c" class="stroke-color" title="Stroke color" oninput="onSetStrokeColor(this.value)">
+                <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">
+                    <img src="img/switch-line.png" alt="">
+                </button>
+                <button class="btn-add-line" title="Add line" onclick="onAddLine()">
+                    <img src="/img/add.png" alt="">
+                </button>
+                <button class="btn-delete-line" title="Delete font" onclick="onDeleteLine()">
+                    <img src="img/trash.png" alt="">
+                </button>
+
+                <button class="btn-increase-font" title="Increase font" onclick="onChangeFontSize(1)">
+                    <img src="img/increase font - icon.png" alt="">
+                </button>
+                <button class="btn-decrease-font" title="Decrease font" onclick="onChangeFontSize(-1)">
+                    <img src="img/decrease font - icon.png" alt="">
+                </button>
+                <button class="btn-align-left" title="Align left" onclick="onAlignLine('left')">
+                    <img src="img/align-to-left.png" alt="">
+                </button>
+                <button class="btn-align-center" title="Align center" onclick="onAlignLine('center')">
+                    <img src="img/center-text-alignment.png" alt="">
+                </button>
+                <button class="btn-align-right" title="Align right" onclick="onAlignLine('right')">
+                    <img src="img/align-to-right.png" alt="">
+                </button>
+
                 <select class="select-font" onchange="onSetFontFamily(this.value)">
                     <option value="impact">IMPACT</option>
                     <option value="arial">ARIAL</option>
@@ -75,22 +99,21 @@
                     <option value="futura">FUTURA</option>
                     <option value="georgia">GEORGIA</option>
                 </select>
-                <button class="btn-increase-font" title="Increase font" onclick="onChangeFontSize(1)">A+</button>
-                <button class="btn-decrease-font" title="Decrease font" onclick="onChangeFontSize(-1)">A-</button>
-                <button class="btn-add-line" title="Add line" onclick="onAddLine()">Add line</button>
-                <button class="btn-delete-line" title="Delete font" onclick="onDeleteLine()">Delete line</button>
-                <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">Switch line</button>
-                <button class="btn-align-left" title="Align left" onclick="onAlignLine('left')">Align left</button>
-                <button class="btn-align-center" title="Align center" onclick="onAlignLine('center')">Align center</button>
-                <button class="btn-align-right" title="Align right" onclick="onAlignLine('right')">Align right</button>
+
+                <button class="stroke-color">
+                    <img src="img/text stroke.png" alt="">
+                    <input type="color" value="#da6c6c" class="stroke-color" title="Stroke color" oninput="onSetStrokeColor(this.value)">
+                </button>
+                <input type="color" value="#f6b73c" class="font-color" title="Font color" oninput="onSetFontColor(this.value)">
+                
                 <section class="stickers-container">
                     <h2>Sticker</h2>
                     <h2>Sticker</h2>
                     <h2>Sticker</h2>
                 </section>
-                <button class="save">Save</button>
+                <button class="btn-save">Save</button>
                 <button class="btn-download"><a href="#" download="file-name" onclick="onDownload(this)">Download</a></button>
-                <button class="share">Share</button>
+                <button class="btn-share">Share</button>
             </section>
         </section>
     </section>
@@ -126,7 +149,7 @@
 
     <footer class="main-footer flex align-center space-around main-layout full">
         <div class="logo"><img src="img/logo.png" alt="logo"></div>
-        <p>All Rights Reserved ©</p>
+        <p>All Rights Reserved 2022 ©</p>
     </footer>
 
     <script src="js/storage-service.js"></script>
