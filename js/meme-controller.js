@@ -12,6 +12,7 @@ function onInit() {
     // resizeCanvas()
     addListeners()
     renderGallery()
+    renderStickers()
     renderMeme()
 }
 
@@ -104,7 +105,6 @@ function getEvPos(ev) {
 
     return pos
 }
-
 
 function onSetLineTxt(txt) {
     setLineTxt(txt)

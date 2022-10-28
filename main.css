@@ -3,6 +3,7 @@
     --clr-primary: #ff7f00;
     --clr-secondary1: #b1d304;
     --clr-secondary2: #fb7373;
+    --clr-secondary3: #459BD5;
     --clr3: #000000;
     --clr2: #7a7a7a;
     --clr1: #e3e3e3;
@@ -295,13 +296,14 @@ canvas {
     grid-template-columns: repeat(5, 10vh);
     grid-template-rows: 10vh 10vh 10vh 10vh 15vh 10vh;
     gap: 10px;
+    margin-inline-start: 120px;
     grid-template-areas: 
     'input input input input input'
     '. switch addline delete .'
     'increase decrease aleft acenter aright'
     'select select select strokecolor fontcolor'
     'stickers stickers stickers stickers stickers'
-    '. save download share .';
+    'download download download save share';
 }
 
 .control-box button {
@@ -363,6 +365,7 @@ border-radius: 12px;
 font-family: Montserrat-regular;
 font-size: 1.25rem;
 padding: 0.5em;
+cursor: pointer;
 }
 
 .btn-stroke-color {
@@ -403,18 +406,88 @@ cursor: pointer;
 
 .stickers-container {
 grid-area: stickers;
+position: relative;
+overflow: hidden;
+background-color: var(--clr0);
+border-radius: 12px;
 }
+
+.stickers-list {
+height: 100%;
+width: 100%;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+margin: 0;
+padding: 0;
+overflow: hidden;
+/* overflow: scroll;
+scroll-behavior: smooth; */
+}
+
+.stickers-list::-webkit-scrollbar {
+display: none;
+}
+
+.sticker-preview {
+width: 100%;
+height: 100%;
+}
+   
+.slide-arrow {
+position: absolute;
+display: grid;
+place-content: center;
+top: 0;
+bottom: 0;
+margin: auto;
+height: 100%;
+width: 2rem;
+font-size: 3rem;
+cursor: pointer;
+}
+   
+.slide-arrow-prev {
+left: 0;
+}
+   
+.slide-arrow-next {
+right: 0;
+}
+
 
 .btn-save {
 grid-area: save;
+background-color: var(--clr-primary) !important;
+font-size: 1.25rem;
+font-family: Montserrat-regular;
+color: var(--clr0);
 }
 
 .btn-download {
 grid-area: download;
+background-color: var(--clr-secondary1) !important;
+}
+
+.btn-download a {
+font-size: 1.25rem;
+font-family: Montserrat-regular;
+padding: 0.8em;
+margin-inline-start: 0.5em;
+color: var(--clr0);
+text-decoration: none;
+}
+
+.btn-download img {
+height: 20px;
 }
 
 .btn-share {
 grid-area: share;
+background-color: var(--clr-secondary3) !important;
+}
+
+.btn-share img {
+    padding: 1.4em !important;
 }
 
 /* canves */
