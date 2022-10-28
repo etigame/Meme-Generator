@@ -365,12 +365,40 @@ font-size: 1.25rem;
 padding: 0.5em;
 }
 
-.stroke-color {
+.btn-stroke-color {
 grid-area: strokecolor;
+position: relative;
+color: var(--clr-primary);
+font-size: 2rem;
+font-weight: 700;
+display: grid;
+place-content: center;
 }
 
-.font-color {
+.stroke-color-input {
+position:absolute;
+opacity: 0;
+width: 100%;
+height: 100%;
+cursor: pointer;
+}
+
+.btn-font-color {
 grid-area: fontcolor;
+position: relative;
+color: var(--clr-secondary2);
+font-size: 2rem;
+font-weight: 700;
+display: grid;
+place-content: center;
+}
+    
+.font-color-input {
+position:absolute;
+opacity: 0;
+width: 100%;
+height: 100%;
+cursor: pointer;
 }
 
 .stickers-container {

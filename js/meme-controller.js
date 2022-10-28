@@ -119,11 +119,13 @@ function onImgSelect(img) {
 
 function onSetFontColor(color) {
     setFontColor(color)
+    document.querySelector('.btn-font-color').style.color = `${color}`
     renderMeme()
 }
 
 function onSetStrokeColor(color) {
     setStrokeColor(color)
+    document.querySelector('.btn-stroke-color').style.color = `${color}`
     renderMeme()
 }
 
