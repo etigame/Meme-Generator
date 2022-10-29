@@ -118,3 +118,8 @@ function setLineDrag(isDrag) {
     gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
     saveMemeToStorage()
   }
+
+function moveLine(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.offsetX += dx
+    gMeme.lines[gMeme.selectedLineIdx].pos.offsetY += dy
+}

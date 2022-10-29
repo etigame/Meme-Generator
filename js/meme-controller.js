@@ -60,24 +60,25 @@ function addListeners() {
 function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mousedown', onDown)
-    // gElCanvas.addEventListener('mouseup', onUp)
+    gElCanvas.addEventListener('mouseup', onUp)
 }
   
 function addTouchListeners() {
     gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchstart', onDown)
-    // gElCanvas.addEventListener('touchend', onUp)
+    gElCanvas.addEventListener('touchend', onUp)
 }
 
 function onDown(ev) {
     const pos = getEvPos(ev)
     const meme = getMeme()
-
+    console.log(pos);
+    
     // check if the click was on any line and returns it's idx
     const clickedLineIdx = meme.lines.findIndex(line => {
         return pos.x > line.pos.offsetX && pos.x < line.pos.offsetX + gCtx.measureText(line.txt).width 
         &&
-          pos.y > line.pos.offsetY && pos.y < line.pos.offsetY  + gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
+        pos.y > line.pos.offsetY && pos.y < line.pos.offsetY  + gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
     })
     
     if (clickedLineIdx === -1) return 
@@ -88,24 +89,28 @@ function onDown(ev) {
 
     setLineDrag(true)
     gStartPos = pos
-    document.body.style.cursor = 'grabbing'
+    document.body.style.cursor = 'grab'
       
     renderMeme()
 }
 
 function onMove(ev) {
-    const { isDrag } = getSelectedLine()
+    const {isDrag} = getSelectedLine()
     if (!isDrag) return
     const pos = getEvPos(ev)
     //Calc the delta , the diff we moved
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
-    moveCircle(dx, dy)
+    moveLine(dx, dy)
     //Save the last pos , we remember where we`ve been and move accordingly
     gStartPos = pos
-    //The canvas is render again after every move
-    renderCanvas()
-  
+    
+    renderMeme()
+  }
+
+function onUp() {
+    setLineDrag(false)
+    document.body.style.cursor = 'grabbing'
   }
 
 function getEvPos(ev) {
