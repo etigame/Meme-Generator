@@ -4,6 +4,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 let gElCanvas
 let gCtx
+let gStartPos
 
 function onInit() { 
     gElCanvas = document.getElementById('my-canvas')
@@ -57,13 +58,13 @@ function addListeners() {
 }
 
 function addMouseListeners() {
-    // gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mousedown', onDown)
     // gElCanvas.addEventListener('mouseup', onUp)
 }
   
 function addTouchListeners() {
-    // gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchstart', onDown)
     // gElCanvas.addEventListener('touchend', onUp)
 }
@@ -84,9 +85,28 @@ function onDown(ev) {
         updateSelectedLine(clickedLineIdx)
         document.querySelector('.input-txt').value = meme.lines[clickedLineIdx].txt
     }
+
+    setLineDrag(true)
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
       
     renderMeme()
 }
+
+function onMove(ev) {
+    const { isDrag } = getSelectedLine()
+    if (!isDrag) return
+    const pos = getEvPos(ev)
+    //Calc the delta , the diff we moved
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveCircle(dx, dy)
+    //Save the last pos , we remember where we`ve been and move accordingly
+    gStartPos = pos
+    //The canvas is render again after every move
+    renderCanvas()
+  
+  }
 
 function getEvPos(ev) {
     const pos = {
@@ -200,3 +220,9 @@ function showEditor() {
     document.querySelector('.gallery-list').classList.add('hidden')
     document.querySelector('.about').classList.add('hidden')
 }
+
+function resizeCanvas() {
+    gElCanvas = document.getElementById('my-canvas')
+    gElCanvas.width = gElCanvas.offsetWidth
+    gElCanvas.height = gElCanvas.offsetHeight
+  }

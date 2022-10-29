@@ -22,6 +22,10 @@ function getMeme() {
     return gMeme
 }
 
+function getSelectedLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
 function getPosY(lineId) {
     let posY 
     switch (lineId) {
@@ -109,3 +113,8 @@ function alignLine(offsetX) {
 function saveMemeToStorage() {
     saveToStorage(GMEME_STORAGE_KEY, gMeme)
 }
+
+function setLineDrag(isDrag) {
+    gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+    saveMemeToStorage()
+  }
