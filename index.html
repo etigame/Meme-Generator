@@ -46,9 +46,10 @@
                 <h2>Funny</h2>
                 <h2>Kids</h2>
             </section>
-            <button class="btn-upload flex row space-between align-center">Upload
+            <label class="btn-upload flex row space-between align-center">Upload
+                <input type="file" class="input-file" onchange="onImgInput(event)"/>
                 <img src="img/upload-icon.png" alt="">
-            </button>
+            </label>
             <!-- <button class="btn-surprise-meme flex row space-between align-center">Surprise me!
                 <img src="img/surprise-icon.png" alt="">
             </button> -->
@@ -117,12 +118,12 @@
                     </ul>
                 </section>
 
-                <button class="btn-save">Save</button>
+                <button class="btn-save" onclick="onSaveMeme()">Save</button>
                 <button class="btn-download flex row space-between align-center">
                     <a href="#" download="file-name" onclick="onDownload(this)">Download</a>
                     <img src="img/dowload-icon.png" alt="">
                 </button>
-                <button class="btn-share flex row space-between align-center">
+                <button class="btn-share flex row space-between align-center" onclick="onShareCanvas()">
                     <img src="img/share-icon.png" alt="">
                 </button>
             </section>
@@ -163,7 +164,6 @@
         <p>All Rights Reserved 2022 ©</p>
     </footer>
 
-    <script src="js/lib/hammer.js"></script>
     <script src="js/service/storage-service.js"></script>
     <script src="js/service/stickers-service.js"></script>
     <script src="js/service/gallery-service.js"></script>

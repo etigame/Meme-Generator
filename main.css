@@ -235,11 +235,22 @@ canvas {
     padding: 0.4em;
     background-color: var(--clr-secondary1);
     color: var(--clr0);
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform .1s; 
+}
+
+.btn-upload:hover {
+    transform: scale(1.2);
 }
 
 .btn-upload img {
     height: 20px;
     margin-inline-start: 0.5em;
+}
+
+.input-file {
+    display: none;
 }
 
 /* btn-surprise-meme */

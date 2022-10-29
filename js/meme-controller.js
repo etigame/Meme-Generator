@@ -32,9 +32,11 @@ function renderMeme() {
       meme.lines.forEach((line, idx) => {
         const {txt, size, color, stroke, font, pos} = line
         if (meme.selectedLineIdx === idx) {
-            gCtx.fillStyle = 'rgba(222, 221, 221, 0.319)'
-            gCtx.fillRect(pos.offsetX, pos.offsetY, gCtx.measureText(line.txt).width, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent)
+            gCtx.beginPath()
+            gCtx.strokeStyle = 'rgb(255, 127, 0)'
+            gCtx.strokeRect(pos.offsetX, pos.offsetY, gCtx.measureText(line.txt).width, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent)
         }
+        gCtx.beginPath()
         gCtx.lineWidth = 2
         gCtx.textBaseline = 'top'
         gCtx.strokeStyle = `${stroke}`
@@ -75,9 +77,10 @@ function onDown(ev) {
     
     // check if the click was on any line and returns it's idx
     const clickedLineIdx = meme.lines.findIndex(line => {
-        return pos.x > line.pos.offsetX && pos.x < line.pos.offsetX + gCtx.measureText(line.txt).width 
-        &&
-        pos.y > line.pos.offsetY && pos.y < line.pos.offsetY  + gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
+        return pos.x > line.pos.offsetX &&
+        pos.x < line.pos.offsetX + gCtx.measureText(line.txt).width &&
+        pos.y > line.pos.offsetY &&
+        pos.y < line.pos.offsetY  + gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
     })
     
     if (clickedLineIdx === -1) return 
@@ -97,11 +100,11 @@ function onMove(ev) {
     const {isDrag} = getSelectedLine()
     if (!isDrag) return
     const pos = getEvPos(ev)
-    //Calc the delta , the diff we moved
+
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
     moveLine(dx, dy)
-    //Save the last pos , we remember where we`ve been and move accordingly
+
     gStartPos = pos
     
     renderMeme()
@@ -117,6 +120,7 @@ function getEvPos(ev) {
       x: ev.offsetX,
       y: ev.offsetY
     }
+    console.log(pos);
 
     if (TOUCH_EVS.includes(ev.type)) {
       ev.preventDefault()
@@ -225,8 +229,51 @@ function showEditor() {
     document.querySelector('.about').classList.add('hidden')
 }
 
-function resizeCanvas() {
+function resizeCanvas() { // not in use
     gElCanvas = document.getElementById('my-canvas')
     gElCanvas.width = gElCanvas.offsetWidth
     gElCanvas.height = gElCanvas.offsetHeight
+  }
+
+function onSaveMeme() {
+    saveMeme()
+}
+
+async function onShareCanvas() {
+    const dataUrl = gElCanvas.toDataURL();
+    const blob = await (await fetch(dataUrl)).blob();
+    const filesArray = [
+      new File(
+        [blob],
+        'myMeme.png',
+        {
+          type: blob.type,
+          lastModified: new Date().getTime()
+        }
+      )
+    ];
+    const shareData = {
+      files: filesArray,
+    };
+    navigator.share(shareData);
+  }
+  
+  function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+    showEditor()
+  }
+  
+  function loadImageFromInput(ev, onImageReady) {
+    const reader = new FileReader()
+
+    reader.onload = function(ev) {
+      let img = new Image() 
+      img.onload = onImageReady.bind(null, img)
+      img.src = ev.target.result 
+    }
+    reader.readAsDataURL(ev.target.files[0]) 
+  }
+
+  function renderImg(img) {
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
   }

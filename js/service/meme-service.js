@@ -1,6 +1,7 @@
 'use strict'
 
 const GMEME_STORAGE_KEY = 'gMeme_db'
+const SAVED_MEMES_STORAGE_KEY = 'saved_memes_db'
 
 const gMeme = {
     selectedImgId: 1,
@@ -17,6 +18,8 @@ const gMeme = {
     }
     ],
 }
+
+const gSavedMemes = []
    
 function getMeme() {
     return gMeme
@@ -123,3 +126,9 @@ function moveLine(dx, dy) {
     gMeme.lines[gMeme.selectedLineIdx].pos.offsetX += dx
     gMeme.lines[gMeme.selectedLineIdx].pos.offsetY += dy
 }
+
+function saveMeme() {
+    gSavedMemes.push(gMeme)
+    // saveToStorage(SAVED_MEMES_STORAGE_KEY, gMeme)
+}
+
