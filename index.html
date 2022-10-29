@@ -12,8 +12,8 @@
         <!-- another section needed because layout of max-width given to direct child -->
         <section class="main-header-content flex row space-between align-center">
             <div class="logo"><img src="img/logo.png" alt="logo"></div>
+            <img class="img-globe" src="img/globe.png" alt="translation">
             <nav class="main-nav flex">
-                <img class="img-globe" src="img/globe.png" alt="translation">
                 <ul class="nav-links clean-list flex">
                     <li><a href="#" onclick="showGallery()">Gallery</a></li>
                     <span>|</span>
@@ -22,11 +22,12 @@
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
+            <button class="open-menu-btn" onclick="onToggleMenu()">☰</button>
         </section>
     </header>
     
     <section class="gallery-bar main-layout full">
-        <section class="gallery-bar-content flex row space-between align-center">
+        <section class="gallery-bar-content flex align-center">
             <section class="search">
                 <input list="keywords" class="search-keyword" placeholder="Search keyword">
                 <img src="img/search-icon.png" class="search-icon" alt="search-icon">
@@ -48,9 +49,9 @@
             <button class="btn-upload flex row space-between align-center">Upload
                 <img src="img/upload-icon.png" alt="">
             </button>
-            <button class="btn-surprise-meme flex row space-between align-center">Surprise me!
+            <!-- <button class="btn-surprise-meme flex row space-between align-center">Surprise me!
                 <img src="img/surprise-icon.png" alt="">
-            </button>
+            </button> -->
         </section>
     </section>
 
@@ -129,7 +130,7 @@
     </section>
     
     <section id="about" class="about main-layout full">
-        <section class="about-container flex row space-around align-center">
+        <section class="about-container flex space-around align-center">
             <img src="img/me.jpg" class="img-me" alt="me">
             <section class="about-content flex column space-between align-start">
                 <h2>Eti Gal-Or Mendelovich</h1>
@@ -157,7 +158,7 @@
         </section>
     </section>
 
-    <footer class="main-footer flex align-center space-around main-layout full">
+    <footer class="main-footer flex column align-center space-around main-layout full">
         <div class="logo"><img src="img/logo.png" alt="logo"></div>
         <p>All Rights Reserved 2022 ©</p>
     </footer>
