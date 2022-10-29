@@ -5,10 +5,12 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 let gElCanvas
 let gCtx
 let gStartPos
+let gHammerCanvas
 
 function onInit() { 
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    gHammerCanvas = new Hammer(gElCanvas)
 
     // resizeCanvas()
     addListeners()
@@ -64,9 +66,9 @@ function addMouseListeners() {
 }
   
 function addTouchListeners() {
-    gElCanvas.addEventListener('touchmove', onMove)
-    gElCanvas.addEventListener('touchstart', onDown)
-    gElCanvas.addEventListener('touchend', onUp)
+    gHammerCanvas.on('panmove', onMove)
+    gHammerCanvas.on('panstart', onDown)
+    gHammerCanvas.on('panend', onUp)
 }
 
 function onDown(ev) {
