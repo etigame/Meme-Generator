@@ -2,9 +2,9 @@
 
 const gImgs = [
     {id: 1, url: 'img/1.jpg', keywords: ['all','funny', 'happy']},
-    {id: 2, url: 'img/2.jpg', keywords: ['all','animal', 'happy']},
-    {id: 3, url: 'img/3.jpg', keywords: ['all','happy', 'animal', 'kids']},
-    {id: 4, url: 'img/4.jpg', keywords: ['all','animal', 'funny']},
+    {id: 2, url: 'img/2.jpg', keywords: ['all','animals', 'happy']},
+    {id: 3, url: 'img/3.jpg', keywords: ['all','happy', 'animals', 'kids']},
+    {id: 4, url: 'img/4.jpg', keywords: ['all','animals', 'funny']},
     {id: 5, url: 'img/5.jpg', keywords: ['all','kids', 'funny']},
     {id: 6, url: 'img/6.jpg', keywords: ['all','funny', 'happy']},
     {id: 7, url: 'img/7.jpg', keywords: ['all','funny', 'kids']},
