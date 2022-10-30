@@ -1,5 +1,17 @@
 'use strict'
 
+function onInit() { 
+  gElCanvas = document.getElementById('my-canvas')
+  gCtx = gElCanvas.getContext('2d')
+
+  // resizeCanvas()
+  addListeners()
+  renderGallery()
+  renderKeywordsBar()
+  renderStickers()
+  renderMeme()
+}
+
 function onToggleMenu() {
     const elNav = document.querySelector('.main-nav')
     const elBody = document.querySelector('body')

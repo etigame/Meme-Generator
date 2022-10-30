@@ -12,3 +12,17 @@ function onSetFilter(txt) {
     renderGallery()
     document.querySelector('.search-keyword').value = ''
 }
+
+function renderKeywordsBar() {
+    const keywords = getKeywords()
+    const strHtmls = keywords.map(({keyword, size}) => `
+        <p style="font-size: ${size}" onclick="onSelectKeyword(this.innerText)">${keyword}</p>
+        `
+    )
+    
+    document.querySelector('.keywords-bar').innerHTML = strHtmls.join('')
+}
+
+function onSelectKeyword(keyword) {
+    
+}

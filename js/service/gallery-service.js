@@ -21,6 +21,14 @@ const gImgs = [
     {id: 18, url: 'img/18.jpg', keywords: ['all','sad', 'kids']},
 ];
 
+const gKeywordSearchCount = [
+    {keyword: 'funny', size: 12},
+    {keyword: 'animal', size: 16},
+    {keyword: 'kids', size: 2},
+    {keyword: 'happy', size: 4},
+    {keyword: 'sad', size: 1},
+]
+
 let gFilterBy 
 
 function getImages() { 
@@ -33,4 +41,8 @@ function getImages() {
 
 function setFilter(txt) {
     gFilterBy = txt
+}
+
+function getKeywords() {
+    return gKeywordSearchCount
 }

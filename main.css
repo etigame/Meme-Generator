@@ -216,7 +216,7 @@ canvas {
     left: 220px;
 }
 
-.keywords-bar h2 {
+.keywords-bar p {
     font-size: 1.25rem;
     font-family: Montserrat-regular;
     margin-inline-start: 15px;
@@ -224,7 +224,7 @@ canvas {
     cursor: pointer;
 }
 
-.keywords-bar h2:hover {
+.keywords-bar p:hover {
     transform: scale(1.2);
 }
 

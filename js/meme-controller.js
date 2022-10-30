@@ -6,25 +6,14 @@ let gElCanvas
 let gCtx
 let gStartPos
 
-function onInit() { 
-    gElCanvas = document.getElementById('my-canvas')
-    gCtx = gElCanvas.getContext('2d')
-
-    // resizeCanvas()
-    addListeners()
-    renderGallery()
-    renderStickers()
-    renderMeme()
-}
-
 function renderMeme() {
     const meme = getMeme()
     
     const img = new Image() 
     img.src = `img/${meme.selectedImgId}.jpg` 
-    const imgWidth = img.naturalWidth
-    const imgHeight = img.naturalHeight
-    gElCanvas.width = (imgHeight * gElCanvas.height) / imgWidth
+    // const imgWidth = img.naturalWidth
+    // const imgHeight = img.naturalHeight
+    // gElCanvas.width = (imgHeight * gElCanvas.height) / imgWidth
     // gElCanvas.setAttribute('width', ((imgHeight * gElCanvas.height) / imgWidth)) 
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -32,11 +21,9 @@ function renderMeme() {
       meme.lines.forEach((line, idx) => {
         const {txt, size, color, stroke, font, pos} = line
         if (meme.selectedLineIdx === idx) {
-            gCtx.beginPath()
             gCtx.strokeStyle = 'rgb(255, 127, 0)'
             gCtx.strokeRect(pos.offsetX, pos.offsetY, gCtx.measureText(line.txt).width, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent)
         }
-        gCtx.beginPath()
         gCtx.lineWidth = 2
         gCtx.textBaseline = 'top'
         gCtx.strokeStyle = `${stroke}`
@@ -223,10 +210,10 @@ function showGallery() {
 }
 
 function showEditor() {
-    document.querySelector('.editor-page').classList.remove('hidden')
-    document.querySelector('.gallery-bar').classList.add('hidden')
-    document.querySelector('.gallery-list').classList.add('hidden')
-    document.querySelector('.about').classList.add('hidden')
+  document.querySelector('.gallery-bar').classList.add('hidden')
+  document.querySelector('.gallery-list').classList.add('hidden')
+  document.querySelector('.about').classList.add('hidden')
+  document.querySelector('.editor-page').classList.remove('hidden')
 }
 
 function resizeCanvas() { // not in use
