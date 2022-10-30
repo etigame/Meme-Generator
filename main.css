@@ -205,6 +205,10 @@ canvas {
     border: none;
 }
 
+.search-keyword::-webkit-calendar-picker-indicator{
+    display: none !important;
+}
+
 .search {
     border-bottom: 2px solid var(--clr3);
     position: relative;
@@ -742,6 +746,10 @@ canvas {
     
         .about-content {
             margin-inline-start: 10px;
+        }
+
+        .about {
+            height: 105vh;
         }
     
         .img-me {

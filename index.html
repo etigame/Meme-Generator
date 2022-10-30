@@ -17,11 +17,11 @@
             <img class="img-globe" src="img/globe.png" alt="translation">
             <nav class="main-nav flex">
                 <ul class="nav-links clean-list flex">
-                    <li><a href="#" onclick="showGallery()">Gallery</a></li>
+                    <li><a href="#" onclick="showGallery(), onToggleMenu()">Gallery</a></li>
                     <span>|</span>
                     <li><a href="#">My Memes</a></li>
                     <span>|</span>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about" onclick="onToggleMenu()">About</a></li>
                 </ul>
             </nav>
             <button class="open-menu-btn" onclick="onToggleMenu()">☰</button>
@@ -169,6 +169,7 @@
         </section>
     </footer>
 
+    <script src="js/service/i18n-service.js"></script>
     <script src="js/service/storage-service.js"></script>
     <script src="js/service/stickers-service.js"></script>
     <script src="js/service/gallery-service.js"></script>
