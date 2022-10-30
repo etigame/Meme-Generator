@@ -29,9 +29,10 @@
     <section class="gallery-bar main-layout full">
         <section class="gallery-bar-content flex align-center">
             <section class="search">
-                <input list="keywords" class="search-keyword" placeholder="Search keyword">
+                <input list="keywords" class="search-keyword" placeholder="Search keyword" onchange="onSetFilter(this.value)">
                 <img src="img/search-icon.png" class="search-icon" alt="search-icon">
                 <datalist id="keywords">
+                    <option value="all">
                     <option value="happy">
                     <option value="animal">
                     <option value="sad">
