@@ -265,3 +265,9 @@ async function onShareCanvas() {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
   }
 
+// function onAddSticker(stickerId) {
+//   const elSticker = document.querySelector('[data-id="`${stickerId}`"]')
+//   console.log(elSticker);
+//   onAddLine()
+//   renderMeme()
+// }
