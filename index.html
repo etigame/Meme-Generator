@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
+    <link rel="icon" href="img/favicon.ico">
     <link rel="stylesheet" href="main.css">
+   
 </head>
 <body class="main-layout" onload="onInit()">
     <header class="main-header main-layout full">
         <!-- another section needed because layout of max-width given to direct child -->
         <section class="main-header-content flex row space-between align-center">
-            <div class="logo"><img src="img/logo.png" alt="logo"></div>
+            <div class="logo"><img src="img/logo-edited.png" alt="logo"></div>
             <img class="img-globe" src="img/globe.png" alt="translation">
             <nav class="main-nav flex">
                 <ul class="nav-links clean-list flex">
@@ -160,9 +162,11 @@
         </section>
     </section>
 
-    <footer class="main-footer flex column align-center space-around main-layout full">
-        <div class="logo"><img src="img/logo.png" alt="logo"></div>
-        <p>All Rights Reserved 2022 ©</p>
+    <footer class="main-footer main-layout full">
+        <section class="main-footer-content flex column align-center space-around">
+            <div class="logo"><img src="img/logo-edited.png" alt="logo"></div>
+            <p>All Rights Reserved 2022 ©</p>
+        </section>
     </footer>
 
     <script src="js/service/storage-service.js"></script>

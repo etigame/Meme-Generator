@@ -16,7 +16,7 @@ function onSetFilter(txt) {
 function renderKeywordsBar() {
     const keywords = getKeywords()
     const strHtmls = keywords.map(({keyword, size}) => `
-        <p style="font-size: ${size}" onclick="onSelectKeyword(this.innerText)">${keyword}</p>
+        <p style="font-size: ${size}px" onclick="onSelectKeyword(this.innerText)">${keyword}</p>
         `
     )
     
@@ -24,5 +24,8 @@ function renderKeywordsBar() {
 }
 
 function onSelectKeyword(keyword) {
-    
+    selectKeyword(keyword)
+    setFilter(keyword)
+    renderKeywordsBar()
+    renderGallery()
 }

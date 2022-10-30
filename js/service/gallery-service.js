@@ -22,11 +22,11 @@ const gImgs = [
 ];
 
 const gKeywordSearchCount = [
-    {keyword: 'funny', size: 12},
-    {keyword: 'animal', size: 16},
-    {keyword: 'kids', size: 2},
-    {keyword: 'happy', size: 4},
-    {keyword: 'sad', size: 1},
+    {keyword: 'funny', size: 20},
+    {keyword: 'animal', size: 24},
+    {keyword: 'kids', size: 30},
+    {keyword: 'happy', size: 22},
+    {keyword: 'sad', size: 24},
 ]
 
 let gFilterBy 
@@ -45,4 +45,9 @@ function setFilter(txt) {
 
 function getKeywords() {
     return gKeywordSearchCount
+}
+
+function selectKeyword(keywordClicked) {
+    const keywordIdx = gKeywordSearchCount.findIndex(({keyword}) => keyword === keywordClicked)
+    gKeywordSearchCount[keywordIdx].size++
 }
