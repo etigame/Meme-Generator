@@ -23,7 +23,7 @@ const gImgs = [
 
 const gKeywordSearchCount = [
     {keyword: 'funny', size: 20},
-    {keyword: 'animal', size: 24},
+    {keyword: 'animals', size: 24},
     {keyword: 'kids', size: 30},
     {keyword: 'happy', size: 22},
     {keyword: 'sad', size: 24},

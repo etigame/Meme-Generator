@@ -1,46 +1,91 @@
 'use strict'
 
 const gTrans = {
-    'title': {
-        en: 'Todo',
-        he: 'משימות'
+    'gallery': {
+        en: 'Gallery',
+        he: 'גלריה'
     },
-    'subtitle': {
-        en: 'MVC - Model-View-Controller',
-        he: 'מודל - ויו - קונטרולר',
+    'my-memes': {
+        en: 'My Memes',
+        he: 'הממים שלי',
     },
-    'filter-all': {
+    'about': {
+        en: 'About',
+        he: 'אודות',
+    },
+    'search-keyword': {
+        en: 'Search Keyword',
+        he: 'מצא לפי מילת חיפוש'
+    },
+    'all': {
         en: 'All',
         he: 'הכל',
     },
-    'filter-active': {
-        en: 'Active',
-        he: 'פעיל'
+    'happy': {
+        en: 'Happy',
+        he: 'שמח',
     },
-    'filter-done': {
-        en: 'Done',
-        he: 'הושלם',
+    'animals': {
+        en: 'Animals',
+        he: 'חיות',
     },
-    'stat-todo-label': {
-        en: 'Todo',
-        he: 'לעשות',
+    'sad': {
+        en: 'Sad',
+        he: 'עצוב',
     },
-    'stat-active-label': {
-        en: 'Active',
-        he: 'פעיל',
+    'funny': {
+        en: 'Funny',
+        he: 'מצחיק',
     },
-    'add': {
-        en: 'Add',
-        he: 'הוסף',
+    'kids': {
+        en: 'Kids',
+        he: 'ילדים'
     },
-    'sure': {
-        en: 'Are you sure?',
-        es: 'Estas Seguru?',
-        he: 'בטוח נשמה?',
+    'upload': {
+        en: 'Upload',
+        he: 'העלאה'
     },
-    'add-todo-placeholder': {
-        en: 'What needs to be done?',
-        es: 'Que te tienes que hacer?',
-        he: 'מה יש לעשות?'
-    }
+    'input-txt': {
+        en: 'Write something...',
+        he: 'כתוב משהו...'
+    },
+    'save': {
+        en: 'Save',
+        he: 'שמור'
+    },
+    'download': {
+        en: 'Download',
+        he: 'הורדה'
+    },
+    'my-name': {
+        en: 'Eti Gal-Or Mendelovich',
+        he: 'אתי גל-אור מנדלוביץ'
+    },
+    'about-me': {
+        en: 'I am a full-motivated developer, curious and hard working person.<br> Always in growth and learning process. Very responsible and reliable.<br> Love to work in teams and excited of new challenges.',
+        he: 'אני מפתחת פול-סטאק, מלאת מוטיבציה, סקרנית ויודעת לעבוד קשה. אוהבת להיות תמיד בתהליך של צמיחה ולמידה. אחראית מאוד ואמינה. אוהבת לעבוד בצוותים ומתרגשת מאתגרים חדשים.'
+    },
+    'all-rights': {
+        en: 'All Rights Reserved 2022 ©',
+        he: '© כל הזכויות שמורות'
+    },
+}
+
+let gCurrLang = 'en'
+
+function getTrans(transKey) {
+    const transMap = gTrans[transKey]
+    if (!transMap) return 'UNKNOWN'
+
+    let trans = transMap[gCurrLang]
+    if (!trans) trans = transMap.en
+    return trans
+}
+
+function toggleLang() {
+    gCurrLang === 'en'? gCurrLang = 'he' : gCurrLang = 'en'
+}
+
+function getCurrLang() {
+    return gCurrLang
 }

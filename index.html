@@ -14,14 +14,14 @@
         <!-- another section needed because layout of max-width given to direct child -->
         <section class="main-header-content flex row space-between align-center">
             <div class="logo"><img src="img/logo-edited.png" alt="logo"></div>
-            <img class="img-globe" src="img/globe.png" alt="translation">
+            <img class="img-globe" src="img/globe.png" alt="translation" onclick="onSetTrans()">
             <nav class="main-nav flex">
                 <ul class="nav-links clean-list flex">
-                    <li><a href="#" onclick="showGallery(), onToggleMenu()">Gallery</a></li>
+                    <li><a href="#" onclick="showGallery(), onToggleMenu()" data-trans="gallery">Gallery</a></li>
                     <span>|</span>
-                    <li><a href="#">My Memes</a></li>
+                    <li><a href="#" data-trans="my-memes">My Memes</a></li>
                     <span>|</span>
-                    <li><a href="#about" onclick="onToggleMenu()">About</a></li>
+                    <li><a href="#about" onclick="onToggleMenu()" data-trans="about">About</a></li>
                 </ul>
             </nav>
             <button class="open-menu-btn" onclick="onToggleMenu()">☰</button>
@@ -31,31 +31,23 @@
     <section class="gallery-bar main-layout full">
         <section class="gallery-bar-content flex align-center">
             <section class="search">
-                <input list="keywords" class="search-keyword" placeholder="Search keyword" onchange="onSetFilter(this.value)">
+                <input list="keywords" class="search-keyword" placeholder="Search keyword" onchange="onSetFilter(this.value)" data-trans="search-keyword">
                 <img src="img/search-icon.png" class="search-icon" alt="search-icon">
                 <datalist id="keywords">
-                    <option value="all">
-                    <option value="happy">
-                    <option value="animal">
-                    <option value="sad">
-                    <option value="funny">
-                    <option value="kids">
+                    <option value="all" data-trans="all">
+                    <option value="happy" data-trans="happy">
+                    <option value="animals" data-trans="animals">
+                    <option value="sad" data-trans="sad">
+                    <option value="funny" data-trans="funny">
+                    <option value="kids" data-trans="kids">
                 </datalist>
             </section>
             <section class="keywords-bar flex space-between align-center">
-                <p>Happy</p>
-                <p>Animal</p>
-                <p>Sad</p>
-                <p>Funny</p>
-                <p>Kids</p>
             </section>
-            <label class="btn-upload flex row space-between align-center">Upload
+            <label class="btn-upload flex row space-between align-center" data-trans="upload">Upload
                 <input type="file" class="input-file" onchange="onImgInput(event)"/>
                 <img src="img/upload-icon.png" alt="">
             </label>
-            <!-- <button class="btn-surprise-meme flex row space-between align-center">Surprise me!
-                <img src="img/surprise-icon.png" alt="">
-            </button> -->
         </section>
     </section>
 
@@ -70,7 +62,7 @@
             <canvas id="my-canvas" height="450" width="450"></canvas>
             
             <section class="control-box grid">
-                <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)">
+                <input type="text" class="input-txt" placeholder="Write something..." oninput="onSetLineTxt(this.value)" data-trans="input-txt">
                 <button class="btn-switch-line" title="Switch line" onclick="onSwitchLine()">
                     <img src="img/switch-line.png" alt="">
                 </button>
@@ -121,9 +113,9 @@
                     </ul>
                 </section>
 
-                <button class="btn-save" onclick="onSaveMeme()">Save</button>
+                <button class="btn-save" onclick="onSaveMeme()" data-trans="save">Save</button>
                 <button class="btn-download flex row space-between align-center">
-                    <a href="#" download="file-name" onclick="onDownload(this)">Download</a>
+                    <a href="#" download="file-name" onclick="onDownload(this)" data-trans="download">Download</a>
                     <img src="img/dowload-icon.png" alt="">
                 </button>
                 <button class="btn-share flex row space-between align-center" onclick="onShareCanvas()">
@@ -137,8 +129,8 @@
         <section class="about-container flex space-around align-center">
             <img src="img/me.jpg" class="img-me" alt="me">
             <section class="about-content flex column space-between align-start">
-                <h2>Eti Gal-Or Mendelovich</h1>
-                <p>
+                <h2 data-trans="my-name">Eti Gal-Or Mendelovich</h1>
+                <p data-trans="about-me">
                     I am a full-motivated developer, curious and hard working person.<br> Always in growth and learning process. Very responsible and reliable.<br> Love to work in teams and excited of new challenges.
                 </p>
                 <section class="social-links">
@@ -165,7 +157,7 @@
     <footer class="main-footer main-layout full">
         <section class="main-footer-content flex column align-center space-around">
             <div class="logo"><img src="img/logo-edited.png" alt="logo"></div>
-            <p>All Rights Reserved 2022 ©</p>
+            <p data-trans="all-rights">All Rights Reserved 2022 ©</p>
         </section>
     </footer>
 
