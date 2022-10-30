@@ -56,6 +56,31 @@ button:hover {
     transform: scale(0.95);
 }
 
+/* scroll-bar  */
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  } */
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ff7f00; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:active {
+    background: #ff8000cd; 
+    ; 
+  }
+
 /* HELPERS */
 
 /* flex-helpers */

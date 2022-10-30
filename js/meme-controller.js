@@ -22,7 +22,7 @@ function renderMeme() {
         const {txt, size, color, stroke, font, pos} = line
         if (meme.selectedLineIdx === idx) {
             gCtx.strokeStyle = 'rgb(255, 127, 0)'
-            gCtx.strokeRect(pos.offsetX, pos.offsetY, gCtx.measureText(line.txt).width, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent)
+            gCtx.strokeRect(pos.offsetX - 10, pos.offsetY - 10, gCtx.measureText(line.txt).width + 10, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent + 10)
         }
         gCtx.lineWidth = 2
         gCtx.textBaseline = 'top'
