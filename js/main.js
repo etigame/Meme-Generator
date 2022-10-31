@@ -28,9 +28,9 @@ function onToggleMenu() {
     elNav.classList.add('display-menu')
     elBtn.innerText = 'X'
     elSearch.classList.add('change-z-index')
-    elEditor.addEventListener('click', onToggleMenu)
-    elGalleryBar.addEventListener('click', onToggleMenu)
-    elGallery.addEventListener('click', onToggleMenu)
+    elEditor.addEventListener('click', closeMenu)
+    elGalleryBar.addEventListener('click', closeMenu)
+    elGallery.addEventListener('click', closeMenu)
   } else {
     elBody.classList.remove('menu-open')
     elNav.classList.remove('display-menu')
@@ -39,18 +39,29 @@ function onToggleMenu() {
   }
 }
 
+function closeMenu() {
+  const elNav = document.querySelector('.main-nav')
+  const elBody = document.querySelector('body')
+  const elBtn = document.querySelector('.open-menu-btn')
+  const elSearch = document.querySelector('.search')
+
+  elBody.classList.remove('menu-open')
+  elNav.classList.remove('display-menu')
+  elBtn.innerText = '☰'
+  elSearch.classList.remove('change-z-index')
+}
+
 function onSetTrans() {
   toggleLang()
   doTrans()
   setDirection()
-  renderGallery()  
+  renderGallery()
   renderMeme()
 }
 
-
 function doTrans() {
   const els = document.querySelectorAll('[data-trans]')
-  console.log(els);
+  console.log(els)
   els.forEach((el) => {
     const transKey = el.dataset.trans
     const trans = getTrans(transKey)
