@@ -769,9 +769,9 @@ canvas {
     place-content: center;
   }
 
-  canvas {
+  /* canvas {
     width: 95%;
-  }
+  } */
 
   .search.change-z-index {
     z-index: -10;
@@ -887,10 +887,10 @@ canvas {
     grid-template-columns: repeat(3, 1fr);
     }
 
-  canvas {
+  /* canvas {
     width: 400px;
     height: 400px;
-  }
+  } */
 
   .control-box {
     grid-template-columns: repeat(5, 9vh);
@@ -961,10 +961,10 @@ canvas {
       'download download download save share';
   }
 
-  canvas {
+  /* canvas {
     width: 450px;
     height: 450px;
-  }
+  } */
 
   .btn-download a {
     font-size: 1.25rem;

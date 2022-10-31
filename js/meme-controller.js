@@ -5,6 +5,13 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 let gElCanvas
 let gCtx
 let gStartPos
+// let elCanvasHeight = gElCanvas.height
+// let elCanvasWidth = gElCanvas.width
+// console.log(elCanvasHeight, elCanvasWidth);
+
+
+
+
 
 function renderMeme() {
   const meme = getMeme()

@@ -4,6 +4,10 @@ function onInit() {
   gElCanvas = document.getElementById('my-canvas')
   gCtx = gElCanvas.getContext('2d')
 
+  if (window.screen.width < 1080) {
+    gElCanvas.setAttribute('width', (window.screen.width * 0.95))
+  }
+
   // resizeCanvas()
   addListeners()
   renderGallery()
