@@ -10,16 +10,15 @@ function renderGallery() {
 function onSetFilter(txt) {
     setFilter(txt)
     renderGallery()
-    document.querySelector('.search-keyword').value = ''
+    // document.querySelector('.search-keyword').value = ''
 }
 
 function renderKeywordsBar() {
     const keywords = getKeywords()
     const strHtmls = keywords.map(({keyword, size}) => `
-        <p style="font-size: ${size}px" data-trans="${keyword}" onclick="onSelectKeyword(this.innerText)">${keyword}</p>
-        `
+    <p style="font-size: ${size}px" data-trans="${keyword}" onclick="onSelectKeyword(this.innerText)">${keyword}</p>
+    `
     )
-    
     document.querySelector('.keywords-bar').innerHTML = strHtmls.join('')
 }
 

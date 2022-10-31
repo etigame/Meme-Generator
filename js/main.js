@@ -17,6 +17,9 @@ function onToggleMenu() {
   const elBody = document.querySelector('body')
   const elBtn = document.querySelector('.open-menu-btn')
   const elSearch = document.querySelector('.search')
+  const elEditor = document.querySelector('.editor-page')
+  const elGalleryBar = document.querySelector('.gallery-bar')
+  const elGallery = document.querySelector('.gallery-container')
 
   const isOpen = elNav.classList.contains('display-menu')
 
@@ -25,6 +28,9 @@ function onToggleMenu() {
     elNav.classList.add('display-menu')
     elBtn.innerText = 'X'
     elSearch.classList.add('change-z-index')
+    elEditor.addEventListener('click', onToggleMenu)
+    elGalleryBar.addEventListener('click', onToggleMenu)
+    elGallery.addEventListener('click', onToggleMenu)
   } else {
     elBody.classList.remove('menu-open')
     elNav.classList.remove('display-menu')

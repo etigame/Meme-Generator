@@ -45,6 +45,18 @@ const gTrans = {
         en: 'Upload',
         he: 'העלאה'
     },
+    'politic': {
+        en: 'Politic',
+        he: 'פוליטי',
+    },
+    'bad': {
+        en: 'Bad',
+        he: 'רוע'
+    },
+    'celeb': {
+        en: 'Celeb',
+        he: 'סלבס'
+    },
     'input-txt': {
         en: 'Write something...',
         he: 'כתוב משהו...'

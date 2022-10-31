@@ -176,6 +176,7 @@ canvas {
 .logo img {
   height: 100%;
   width: 100%;
+  cursor: pointer;
 }
 
 /* nav-links */
@@ -237,8 +238,12 @@ canvas {
   left: 220px;
 }
 
+.keywords-bar {
+  display: grid;
+}
+
 .keywords-bar p {
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
   font-family: Montserrat-regular;
   margin-inline-start: 15px;
   transition: transform 0.1s;
@@ -518,11 +523,13 @@ canvas {
 .main-footer-content .logo {
   height: 45%;
   width: 15%;
+  cursor: pointer;
 }
 
 .main-footer-content .logo img {
   height: 100%;
   width: 100%;
+  cursor: pointer;
 }
 
 .main-footer-content p {
@@ -626,6 +633,10 @@ canvas {
     gap: 20px;
   }
 
+  .keywords-bar p {
+    margin-inline-start: 0;
+  }
+
   .img-globe {
     margin-inline-end: 5px;
   }
@@ -655,6 +666,7 @@ canvas {
   .main-header-content .logo {
     height: 45%;
     width: 50%;
+    cursor: pointer;
   }
 }
 
@@ -718,7 +730,7 @@ canvas {
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    height: 45vh;
+    height: 56vh;
     padding: 12px 0;
   }
 
@@ -773,6 +785,7 @@ canvas {
   .main-header-content .logo {
     height: 55%;
     width: 40%;
+    cursor: pointer;
   }
 }
 
@@ -792,7 +805,7 @@ canvas {
   }
 
   .gallery-bar-content {
-    height: 20vh;
+    height: 33vh;
   }
 
   .btn-upload {
@@ -867,7 +880,8 @@ canvas {
 
   .keywords-bar {
     margin-inline-start: 55px;
-  }
+    grid-template-columns: repeat(3, 1fr);
+    }
 
   canvas {
     width: 400px;
@@ -959,6 +973,7 @@ canvas {
 
   .keywords-bar {
     margin-inline-start: 0;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

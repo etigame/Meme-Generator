@@ -13,7 +13,9 @@
     <header class="main-header main-layout full">
         <!-- another section needed because layout of max-width given to direct child -->
         <section class="main-header-content flex row space-between align-center">
-            <div class="logo"><img src="img/logo-edited.png" alt="logo"></div>
+            <div class="logo" onclick="showGallery()">
+                <img src="img/logo-edited.png" alt="logo">
+            </div>
             <img class="img-globe" src="img/globe.png" alt="translation" onclick="onSetTrans()">
             <nav class="main-nav flex">
                 <ul class="nav-links clean-list flex">
@@ -31,7 +33,7 @@
     <section class="gallery-bar main-layout full">
         <section class="gallery-bar-content flex align-center">
             <section class="search">
-                <input list="keywords" class="search-keyword" placeholder="Search keyword" onchange="onSetFilter(this.value)" data-trans="search-keyword">
+                <input list="keywords" class="search-keyword" placeholder="Search keyword" oninput="onSetFilter(this.value)" data-trans="search-keyword">
                 <img src="img/search-icon.png" class="search-icon" alt="search-icon">
                 <datalist id="keywords">
                     <option value="all" data-trans="all">
@@ -40,9 +42,12 @@
                     <option value="sad" data-trans="sad">
                     <option value="funny" data-trans="funny">
                     <option value="kids" data-trans="kids">
+                    <option value="politic" data-trans="politic">
+                    <option value="bad" data-trans="bad">
+                    <option value="celeb" data-trans="celeb">
                 </datalist>
             </section>
-            <section class="keywords-bar flex space-between align-center">
+            <section class="keywords-bar">
             </section>
             <label class="btn-upload flex row space-between align-center" data-trans="upload">Upload
                 <input type="file" class="input-file" onchange="onImgInput(event)"/>
@@ -151,7 +156,9 @@
 
     <footer class="main-footer main-layout full">
         <section class="main-footer-content flex column align-center space-around">
-            <div class="logo"><img src="img/logo-edited.png" alt="logo"></div>
+            <div class="logo" onclick="showGallery()">
+                <img src="img/logo-edited.png" alt="logo">
+            </div>
             <p data-trans="all-rights">All Rights Reserved 2022 ©</p>
         </section>
     </footer>
