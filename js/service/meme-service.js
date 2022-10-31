@@ -54,6 +54,34 @@ function getPosY(lineId) {
     return posY
 }
 
+function createMeme() {
+    return {
+        selectedImgId: 1,
+        selectedLineIdx: 0,
+        lines: [
+        {
+        id: 1,
+        txt: 'Type something here...',
+        size: 40,
+        color: 'white',
+        stroke: 'black',
+        font: 'impact',
+        pos: {offsetX: 30, offsetY: 50}
+        }, 
+        {
+        id: 2,
+        txt: 'You can also here',
+        size: 40,
+        color: 'white',
+        stroke: 'black',
+        font: 'impact',
+        pos: {offsetX: 30, offsetY: 400}
+        }
+        ],
+        
+    }
+}
+
 function getSelectedLineIdx() {
     return gMeme.selectedLineIdx
 }
@@ -93,14 +121,13 @@ function changeFontSize(delta) {
     saveMemeToStorage()
 }
 
-function addLine(lineId) {
+function addLine(lineId, sticker) {
     const newLine = {
         id: lineId,
-        txt: '',
+        txt: `${sticker ? sticker : 'Type something here'}`,
         size: 40,
-        // align: 'left',
-        color: '',
-        stroke: '',
+        color: 'white',
+        stroke: 'black',
         font: 'impact',
         pos: {offsetX: 50, offsetY: getPosY(lineId)} 
     }

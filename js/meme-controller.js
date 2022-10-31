@@ -5,12 +5,6 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 let gElCanvas
 let gCtx
 let gStartPos
-// let elCanvasHeight = gElCanvas.height
-// let elCanvasWidth = gElCanvas.width
-// console.log(elCanvasHeight, elCanvasWidth);
-
-
-
 
 
 function renderMeme() {
@@ -18,10 +12,6 @@ function renderMeme() {
 
   const img = new Image()
   img.src = `img/${meme.selectedImgId}.jpg`
-  // const imgWidth = img.naturalWidth
-  // const imgHeight = img.naturalHeight
-  // gElCanvas.width = (imgHeight * gElCanvas.height) / imgWidth
-  // gElCanvas.setAttribute('width', ((imgHeight * gElCanvas.height) / imgWidth))
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
@@ -53,10 +43,10 @@ function addListeners() {
   addMouseListeners()
   addTouchListeners()
 
-  window.addEventListener('resize', () => {
-    //   resizeCanvas()
-    //   renderCanvas()
-  })
+  // window.addEventListener('resize', () => {
+  //     resizeCanvas()
+  //     renderMeme()
+  // })
 }
 
 function addMouseListeners() {
@@ -90,6 +80,7 @@ function onDown(ev) {
 
   if (clickedLineIdx === -1) {
     updateSelectedLine('')
+    document.querySelector('.input-txt').value = ''
     renderMeme()
     return
   }
@@ -175,11 +166,10 @@ function onChangeFontSize(delta) {
   renderMeme()
 }
 
-function onAddLine() {
+function onAddLine(sticker) {
   let linesCounter = countLines()
   updateSelectedLine(linesCounter)
-  addLine(++linesCounter)
-  document.querySelector('.input-txt').value = ''
+  addLine(++linesCounter, sticker)
   renderMeme()
 }
 
@@ -238,7 +228,6 @@ function showEditor() {
 }
 
 function resizeCanvas() {
-  // not in use
   gElCanvas = document.getElementById('my-canvas')
   gElCanvas.width = gElCanvas.offsetWidth
   gElCanvas.height = gElCanvas.offsetHeight
@@ -283,9 +272,6 @@ function renderImg(img) {
   gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-// function onAddSticker(stickerId) {
-//   const elSticker = document.querySelector('[data-id="`${stickerId}`"]')
-//   console.log(elSticker);
-//   onAddLine()
-//   renderMeme()
-// }
+function onAddSticker(sticker) {
+  onAddLine(sticker)
+}

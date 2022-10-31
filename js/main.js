@@ -3,10 +3,14 @@
 function onInit() {
   gElCanvas = document.getElementById('my-canvas')
   gCtx = gElCanvas.getContext('2d')
-
-  if (window.screen.width < 1080) {
-    gElCanvas.setAttribute('width', (window.screen.width * 0.95))
-  }
+  // const pageWidth = getPageWidth()
+  // if (pageWidth < 1080) {
+  //   gElCanvas.width = pageWidth * 0.95
+  //   gElCanvas.height = pageWidth * 0.95
+  //   console.log(gElCanvas.width, gElCanvas.height);
+  //   // const gelCanvasWidth = gElCanvas.setAttribute('width', (window.screen.width * 0.95))
+  //   // gElCanvas.setAttribute('height', gelCanvasWidth)
+  // }
 
   // resizeCanvas()
   addListeners()
@@ -14,6 +18,16 @@ function onInit() {
   renderKeywordsBar()
   renderStickers()
   renderMeme()
+}
+
+function getPageWidth() {
+  return Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  );
 }
 
 function onToggleMenu() {
