@@ -9,14 +9,24 @@ const gMeme = {
     lines: [
     {
     id: 1,
-    txt: '',
+    txt: 'Type something here...',
     size: 40,
     color: 'white',
     stroke: 'black',
     font: 'impact',
-    pos: {offsetX: 30, offsetY: 100}
+    pos: {offsetX: 30, offsetY: 50}
+    }, 
+    {
+    id: 2,
+    txt: 'You can also here',
+    size: 40,
+    color: 'white',
+    stroke: 'black',
+    font: 'impact',
+    pos: {offsetX: 30, offsetY: 400}
     }
     ],
+    
 }
 
 const gSavedMemes = []

@@ -22,7 +22,7 @@ function renderMeme() {
         const {txt, size, color, stroke, font, pos} = line
         if (meme.selectedLineIdx === idx) {
             gCtx.strokeStyle = 'rgb(255, 127, 0)'
-            gCtx.strokeRect(pos.offsetX - 10, pos.offsetY - 10, gCtx.measureText(line.txt).width + 10, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent + 10)
+            gCtx.strokeRect(pos.offsetX - 10, pos.offsetY - 10, gCtx.measureText(line.txt).width + 20, gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent + 20)
         }
         gCtx.lineWidth = 2
         gCtx.textBaseline = 'top'
@@ -70,7 +70,11 @@ function onDown(ev) {
         pos.y < line.pos.offsetY  + gCtx.measureText(line.txt).fontBoundingBoxAscent + gCtx.measureText(line.txt).fontBoundingBoxDescent;
     })
     
-    if (clickedLineIdx === -1) return 
+    if (clickedLineIdx === -1) {
+        updateSelectedLine('')
+        renderMeme()
+        return
+      } 
     if (clickedLineIdx !== undefined) {
         updateSelectedLine(clickedLineIdx)
         document.querySelector('.input-txt').value = meme.lines[clickedLineIdx].txt

@@ -176,6 +176,7 @@ canvas {
 .logo img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
   cursor: pointer;
 }
 
@@ -526,12 +527,6 @@ canvas {
   cursor: pointer;
 }
 
-.main-footer-content .logo img {
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-}
-
 .main-footer-content p {
   font-size: 1rem;
   font-family: Montserrat-Thin;
@@ -664,8 +659,8 @@ canvas {
   }
 
   .main-header-content .logo {
-    height: 45%;
-    width: 50%;
+    height: 25px;
+    width: 160px;
     cursor: pointer;
   }
 }
@@ -783,9 +778,18 @@ canvas {
   }
 
   .main-header-content .logo {
-    height: 55%;
-    width: 40%;
+    height: 25px;
+    width: 160px;
     cursor: pointer;
+  }
+
+  .main-footer-content {
+    margin-block-start: 5px;
+  }
+
+  .main-footer-content .logo {
+    height: 45%;
+    width: 45%;
   }
 }
 
@@ -903,7 +907,12 @@ canvas {
   }
 
   .main-footer-content {
-    margin-block-start: 10px;
+    margin-block-start: 8px;  
+  }
+
+  .main-footer-content .logo {
+    height: 25px;
+    width: 160px;
   }
 }
 
