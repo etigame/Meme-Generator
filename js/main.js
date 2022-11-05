@@ -3,15 +3,22 @@
 function onInit() {
   gElCanvas = document.getElementById('my-canvas')
   gCtx = gElCanvas.getContext('2d')
+  
   // const pageWidth = getPageWidth()
-  // if (pageWidth < 1080) {
+  // console.log(pageWidth);
+  // if (pageWidth > 1080) {
+  //   gElCanvas.width = pageWidth * 0.45
+  //   gElCanvas.height = pageWidth * 0.45
+  // }
+  // if (pageWidth < 1080 && pageWidth > 780) {
+  //   gElCanvas.width = pageWidth * 0.45
+  //   gElCanvas.height = pageWidth * 0.45
+  // }
+  // if (pageWidth < 480) {
   //   gElCanvas.width = pageWidth * 0.95
   //   gElCanvas.height = pageWidth * 0.95
-  //   console.log(gElCanvas.width, gElCanvas.height);
-  //   // const gelCanvasWidth = gElCanvas.setAttribute('width', (window.screen.width * 0.95))
-  //   // gElCanvas.setAttribute('height', gelCanvasWidth)
   // }
-
+  
   // resizeCanvas()
   addListeners()
   renderGallery()
@@ -22,8 +29,6 @@ function onInit() {
 
 function getPageWidth() {
   return Math.max(
-    document.body.scrollWidth,
-    document.documentElement.scrollWidth,
     document.body.offsetWidth,
     document.documentElement.offsetWidth,
     document.documentElement.clientWidth
