@@ -250,7 +250,7 @@ function showSavedMemes() {
 
 function renderSavedMemes() {
   const savedMemes = loadFromStorage(SAVED_MEMES_STORAGE_KEY)
-  const strHtmls = savedMemes.map(({selectedImgId}) => `<img class="img-preview" data-id="${selectedImgId}" src="${url}" onclick="onImgSelect(this)">`)
+  const strHtmls = savedMemes.map(({selectedImgId}) => `<img class="img-preview" data-id="${selectedImgId}" src="${gImgs[selectedImgId - 1].url}" onclick="onImgSelect(this)">`)
     
   document.querySelector('.saved-memes-page').innerHTML = strHtmls.join('')
 }

@@ -289,6 +289,10 @@ canvas {
   gap: 20px;
 }
 
+.saved-memes-page {
+  gap: 20px;
+}
+
 .img-preview {
   height: 100%;
   width: 100%;
@@ -614,6 +618,12 @@ canvas {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .saved-memes-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 150px));
+  }
+
   .about-container {
     flex-direction: column;
     padding: 30px 0;
@@ -741,6 +751,12 @@ canvas {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .saved-memes-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 150px));
+  }
+
   .about-container {
     flex-direction: column;
     padding: 30px 0;
@@ -825,6 +841,12 @@ canvas {
 
   .gallery-list {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  .saved-memes-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 150px));
   }
 
   .img-me {
@@ -931,6 +953,12 @@ canvas {
 
   .gallery-list {
     grid-template-columns: repeat(6, 1fr);
+  }
+
+  .saved-memes-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 150px));
   }
 
   .img-me {
