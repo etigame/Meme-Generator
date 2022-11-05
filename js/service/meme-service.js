@@ -3,31 +3,32 @@
 const GMEME_STORAGE_KEY = 'gMeme_db'
 const SAVED_MEMES_STORAGE_KEY = 'saved_memes_db'
 
-const gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 0,
-    lines: [
-    {
-    id: 1,
-    txt: 'Type something here...',
-    size: 40,
-    color: 'white',
-    stroke: 'black',
-    font: 'impact',
-    pos: {offsetX: 30, offsetY: 50}
-    }, 
-    {
-    id: 2,
-    txt: 'You can also here',
-    size: 40,
-    color: 'white',
-    stroke: 'black',
-    font: 'impact',
-    pos: {offsetX: 30, offsetY: 400}
-    }
-    ],
-    
-}
+let gMeme 
+
+// {
+//     selectedImgId: 1,
+//     selectedLineIdx: 0,
+//     lines: [
+//     {
+//     id: 1,
+//     txt: 'Type something here...',
+//     size: 40,
+//     color: 'white',
+//     stroke: 'black',
+//     font: 'impact',
+//     pos: {offsetX: 30, offsetY: 50}
+//     }, 
+//     {
+//     id: 2,
+//     txt: 'You can also here',
+//     size: 40,
+//     color: 'white',
+//     stroke: 'black',
+//     font: 'impact',
+//     pos: {offsetX: 30, offsetY: 400}
+//     }
+//     ],
+// }
 
 const gSavedMemes = []
    
@@ -55,6 +56,8 @@ function getPosY(lineId) {
 }
 
 function createMeme() {
+    let canvas = getCanvas()
+
     return {
         selectedImgId: 1,
         selectedLineIdx: 0,
@@ -62,20 +65,20 @@ function createMeme() {
         {
         id: 1,
         txt: 'Type something here...',
-        size: 40,
+        size: canvas.width * 0.1,
         color: 'white',
         stroke: 'black',
         font: 'impact',
-        pos: {offsetX: 30, offsetY: 50}
+        pos: {offsetX: (canvas.width * 0.08), offsetY: (canvas.width * 0.08)}
         }, 
         {
         id: 2,
         txt: 'You can also here',
-        size: 40,
+        size: canvas.width * 0.1,
         color: 'white',
         stroke: 'black',
         font: 'impact',
-        pos: {offsetX: 30, offsetY: 400}
+        pos: {offsetX: (canvas.width * 0.08), offsetY: canvas.height - (canvas.width * 0.2)}
         }
         ],
         
@@ -97,6 +100,7 @@ function setLineTxt(txt) {
 }
 
 function setImg(imgId) {
+    gMeme = createMeme()
     gMeme.selectedImgId = imgId
     saveMemeToStorage()
 }

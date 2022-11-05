@@ -6,6 +6,9 @@ let gElCanvas
 let gCtx
 let gStartPos
 
+function getCanvas() {
+  return gElCanvas
+}
 
 function renderMeme() {
   const meme = getMeme()
@@ -17,7 +20,7 @@ function renderMeme() {
 
     meme.lines.forEach((line, idx) => {
       const { txt, size, color, stroke, font, pos, id } = line
-      if (line.id === 2) {pos.offsetY = gElCanvas.height - 50}
+      // if (line.pos.offsetY === null) {line.pos.offsetY = gElCanvas.height - 50}
       
 
       if (meme.selectedLineIdx === idx) {
