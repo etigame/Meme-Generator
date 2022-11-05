@@ -21,7 +21,7 @@
                 <ul class="nav-links clean-list flex">
                     <li><a href="#" onclick="showGallery(), onToggleMenu()" data-trans="gallery">Gallery</a></li>
                     <span>|</span>
-                    <li><a href="#" data-trans="my-memes">My Memes</a></li>
+                    <li><a href="#" onclick="showSavedMemes(), onToggleMenu()" data-trans="my-memes">My Memes</a></li>
                     <span>|</span>
                     <li><a href="#about" onclick="onToggleMenu()" data-trans="about">About</a></li>
                 </ul>
@@ -60,6 +60,8 @@
         <section class="gallery-list grid">
         </section>
     </section>
+
+    <section class="saved-memes-page hidden main-layout full"></section>
 
     
     <section class="editor-page hidden main-layout full">

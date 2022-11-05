@@ -306,6 +306,13 @@ canvas {
   background-color: var(--clr1);
 }
 
+/* saves-memes-page */
+.saved-memes-page {
+  background-color: var(--clr1);
+  height: 80vh;
+}
+
+
 /* control-box */
 .control-box {
   height: 100%;

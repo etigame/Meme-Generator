@@ -169,7 +169,10 @@ function moveLine(dx, dy) {
 }
 
 function saveMeme() {
-    gSavedMemes.push(gMeme)
-    // saveToStorage(SAVED_MEMES_STORAGE_KEY, gMeme)
+    gSavedMemes.unshift(gMeme)
+    saveToStorage(SAVED_MEMES_STORAGE_KEY, gSavedMemes)
 }
 
+// function getSavedMemes() {
+//     return gSavedMemes
+// }

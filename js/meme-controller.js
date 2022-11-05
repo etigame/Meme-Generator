@@ -225,6 +225,9 @@ function showGallery() {
   document.querySelector('.gallery-bar').classList.remove('hidden')
   document.querySelector('.gallery-list').classList.remove('hidden')
   document.querySelector('.about').classList.remove('hidden')
+  document.querySelector('.saved-memes-page').classList.add('hidden')
+  renderGallery()
+  renderKeywordsBar()
 }
 
 function showEditor() {
@@ -232,6 +235,24 @@ function showEditor() {
   document.querySelector('.gallery-list').classList.add('hidden')
   document.querySelector('.about').classList.add('hidden')
   document.querySelector('.editor-page').classList.remove('hidden')
+  document.querySelector('.saved-memes-page').classList.add('hidden')
+  renderStickers()
+}
+
+function showSavedMemes() {
+  document.querySelector('.gallery-bar').classList.add('hidden')
+  document.querySelector('.gallery-list').classList.add('hidden')
+  document.querySelector('.about').classList.add('hidden')
+  document.querySelector('.editor-page').classList.add('hidden')
+  document.querySelector('.saved-memes-page').classList.remove('hidden')
+  renderSavedMemes()
+}
+
+function renderSavedMemes() {
+  const savedMemes = loadFromStorage(SAVED_MEMES_STORAGE_KEY)
+  const strHtmls = savedMemes.map(({selectedImgId}) => `<img class="img-preview" data-id="${selectedImgId}" src="${url}" onclick="onImgSelect(this)">`)
+    
+  document.querySelector('.saved-memes-page').innerHTML = strHtmls.join('')
 }
 
 function resizeCanvas() {
@@ -257,6 +278,8 @@ function resizeCanvas() {
 
 function onSaveMeme() {
   saveMeme()
+  showSavedMemes()
+  renderSavedMemes()
 }
 
 async function onShareCanvas() {

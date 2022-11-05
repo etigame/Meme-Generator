@@ -9,7 +9,6 @@ function onInit() {
   renderGallery()
   renderKeywordsBar()
   renderStickers()
-  // renderMeme()
 }
 
 function getPageWidth() {
