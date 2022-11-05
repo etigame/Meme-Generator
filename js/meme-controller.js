@@ -16,7 +16,10 @@ function renderMeme() {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
     meme.lines.forEach((line, idx) => {
-      const { txt, size, color, stroke, font, pos } = line
+      const { txt, size, color, stroke, font, pos, id } = line
+      if (line.id === 2) {pos.offsetY = gElCanvas.height - 50}
+      
+
       if (meme.selectedLineIdx === idx) {
         gCtx.strokeStyle = 'rgb(255, 127, 0)'
         gCtx.strokeRect(
@@ -28,6 +31,7 @@ function renderMeme() {
             20
         )
       }
+      
       gCtx.lineWidth = 2
       gCtx.textBaseline = 'top'
       gCtx.strokeStyle = `${stroke}`
@@ -43,10 +47,10 @@ function addListeners() {
   addMouseListeners()
   addTouchListeners()
 
-  // window.addEventListener('resize', () => {
-  //     resizeCanvas()
-  //     renderMeme()
-  // })
+  window.addEventListener('resize', () => {
+      resizeCanvas()
+      renderMeme()
+  })
 }
 
 function addMouseListeners() {
@@ -231,6 +235,21 @@ function resizeCanvas() {
   gElCanvas = document.getElementById('my-canvas')
   gElCanvas.width = gElCanvas.offsetWidth
   gElCanvas.height = gElCanvas.offsetHeight
+
+  const pageWidth = getPageWidth()
+  console.log(pageWidth);
+  if (pageWidth > 1080) {
+    gElCanvas.width = 450
+    gElCanvas.height = 450
+  }
+  if (pageWidth < 1080 && pageWidth > 780) {
+    gElCanvas.width = 400
+    gElCanvas.height = 400
+  }
+  if (pageWidth < 480) {
+    gElCanvas.width = pageWidth * 0.95
+    gElCanvas.height = pageWidth * 0.95
+  }
 }
 
 function onSaveMeme() {

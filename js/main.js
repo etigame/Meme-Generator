@@ -4,22 +4,7 @@ function onInit() {
   gElCanvas = document.getElementById('my-canvas')
   gCtx = gElCanvas.getContext('2d')
   
-  // const pageWidth = getPageWidth()
-  // console.log(pageWidth);
-  // if (pageWidth > 1080) {
-  //   gElCanvas.width = pageWidth * 0.45
-  //   gElCanvas.height = pageWidth * 0.45
-  // }
-  // if (pageWidth < 1080 && pageWidth > 780) {
-  //   gElCanvas.width = pageWidth * 0.45
-  //   gElCanvas.height = pageWidth * 0.45
-  // }
-  // if (pageWidth < 480) {
-  //   gElCanvas.width = pageWidth * 0.95
-  //   gElCanvas.height = pageWidth * 0.95
-  // }
-  
-  // resizeCanvas()
+  resizeCanvas()
   addListeners()
   renderGallery()
   renderKeywordsBar()
