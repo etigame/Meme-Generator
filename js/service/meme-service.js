@@ -41,16 +41,18 @@ function getSelectedLine() {
 }
 
 function getPosY(lineId) {
+    let canvas = getCanvas()
+
     let posY 
     switch (lineId) {
         case 1:
-            posY = 50
+            posY = (canvas.width * 0.08)
             break
         case 2: 
-            posY = 400
+            posY = canvas.height - (canvas.width * 0.2)
             break
         default:
-            posY = 250
+            posY = (canvas.width * 0.5)
     } 
     return posY
 }
@@ -126,15 +128,18 @@ function changeFontSize(delta) {
 }
 
 function addLine(lineId, sticker) {
+    let canvas = getCanvas()
+
     const newLine = {
         id: lineId,
         txt: `${sticker ? sticker : 'Type something here'}`,
-        size: 40,
+        size: canvas.width * 0.1,
         color: 'white',
         stroke: 'black',
         font: 'impact',
-        pos: {offsetX: 50, offsetY: getPosY(lineId)} 
+        pos: {offsetX: (canvas.width * 0.08), offsetY: getPosY(lineId)} 
     }
+
     gMeme.lines.push(newLine)
     saveMemeToStorage()
 }
